@@ -20,6 +20,7 @@
 body {
   font-family: 'Montserrat', sans-serif;
   overflow: hidden;
+  width: 100vw;
 }
 
 a:visited {
@@ -74,14 +75,16 @@ a:visited {
   justify-content: center;
   height: 250px;
   width: 225px;
-  visibility: hidden;
+  /* visibility: hidden; */
+  display: none;
   transform: translateX(225px);
-  transition: transform 0.4s 0.1s ease-in-out, visibility 0.1s 0.3s;
+  transition: transform 0.4s 0.1s ease-in-out;
 }
 
 .site-header__navigation--active {
   transform: translateX(0);
-  visibility: visible;
+  /* visibility: visible; */
+  display: flex;
 }
 
 .site-header__list {
