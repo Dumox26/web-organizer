@@ -12,43 +12,48 @@
 </head>
 
 <body>
-
   <header class="site-header">
-    <!-- Logo strony -->
-
-    <i class="fas fa-address-card site-header__logo"></i>
-
-    <!-- tytuł strony testy -->
-    <h1 class="site-header__title">Kolejny organizer</h1>
-    <!-- Głowna nawigacja na mobile bedzie pradopowodnie hamburger menu  -->
-    <nav class="site-header__nav">
-      <ul class="site-header__nav-list">
-        <li class="site-header__list-item">
-          <button class="button site-header__button"></button>
-        </li>
-        <li class="site-header__list-item">
-          <button class="button site-header__button"></button>
-        </li>
-        <li class="site-header__list-item">
-          <button class="button site-header__button"></button>
-        </li>
-      </ul>
+    <div class="site-header__branding">
+      <i class="fas fa-3x fa-address-card site-header__logo"></i>
+      <h1 class="site-header__title">Kolejny web organizer</h1>
+    </div>
+    <nav class="site-header__nav site-header__nav--desktop">
+      <button class="hamburger-btn">
+        <span class="hamburger-btn__box">
+          <span class="hamburger-btn__inner"></span>
+        </span>
+      </button>
+      <div class="site-header__navigation">
+        <ul class="site-header__list">
+          <li class="site-header__item"><button class="site-header__btn">Dodaj</button></li>
+          <li class="site-header__item"><button class="site-header__btn">Usun</button></li>
+          <li class="site-header__item"><button class="site-header__btn">Zaloguj</button></li>
+        </ul>
+        <form action="" class="site-header__search-form">
+          <input type="text" class="site-header__input-text" placeholder="test">
+          <button type="submit" class="site-header__form-submit" value="test">Test</button>
+        </form>
+      </div>
     </nav>
   </header>
 
   <main>
-    <!-- Templatka karteczek -->
+
+  </main>
+  <footer>
+  </footer>
+
+
+  <!-- Templatka karteczek -->
+  <!-- <main>
     <article>
       <header>
-        <!-- Nazwa karteczki -->
         <h2></h2>
-        <!-- Kontener na dane stworzenia i zakonczenia karteczki -->
         <div>
           <time>
 
           </time>
         </div>
-        <!-- menu danej karteczki -->
         <div>
           <ul>
             <li><button></button></li>
@@ -57,30 +62,16 @@
           </ul>
         </div>
       </header>
-      <!-- kontent karteczki -->
-      <div>
-
-      </div>
-    </article>
+      <div> 
+  </div>
+  </article>
   </main>
+  -->
   <!-- stopka strony narazie brak pomysłu. Pradopodobnie opis strony (lorem ipsum) i kontakt -->
-  <footer>
 
-  </footer>
-
+  <script src="js/main.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://kit.fontawesome.com/4c4b968272.js"></script>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
 </body>
 
 </html>
