@@ -19,8 +19,6 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  overflow: hidden;
-  width: 100vw;
 }
 
 a:visited {
@@ -28,18 +26,22 @@ a:visited {
 }
 
 .site-header {
-  width: 100%;
+  max-width: 100%;
   height: 90px;
   background-color: var(--primaryColor);
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  padding: 0 1rem;
+  padding: 0.5rem 1rem;
 }
 
 .site-header__branding {
   display: flex;
+  align-self: center;
+  align-items: center;
   flex-flow: row nowrap;
+  height: 100%;
+  padding: 0.25rem;
 }
 
 .site-header__logo {
@@ -60,31 +62,65 @@ a:visited {
 
 .site-header__nav {
   height: 100%;
-  width: 100%;
   justify-content: flex-end;
+}
+
+.site-header__form {
+  width: 300px;
+  height: 45px;
+  margin: 90px auto 0 auto;
+  padding: 0.5rem;
+  background-color: var(--primaryColor);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -180px);
+  visibility: visible;
+  transition: transform 0.3s 0.1s ease-in-out, visibility 0.3s 0.1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.site-header__search-form {
+  width: 100%;
+  height: 100%;
+}
+
+.site-header__input-text {
+  width: 100%;
+  height: 100%;
+}
+
+.site-header__form-submit {
+  width: 30px;
+  height: 100%;
+}
+
+.site-header__form--active {
+  transform: translate(-50%, 0);
+  visibility: visible;
 }
 
 .site-header__navigation {
   background-color: var(--primaryColor);
   position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
   margin-top: 90px;
   padding: 0.5rem;
   flex-flow: column nowrap;
   justify-content: center;
-  height: 250px;
+  height: 200px;
   width: 225px;
-  /* visibility: hidden; */
-  display: none;
-  transform: translateX(225px);
-  transition: transform 0.4s 0.1s ease-in-out;
+  visibility: hidden;
+  transform: translateX(-225px);
+  transition: transform 0.4s 0.1s ease-in-out, visibility 0.3s 0.1s;
 }
 
 .site-header__navigation--active {
   transform: translateX(0);
-  /* visibility: visible; */
-  display: flex;
+  visibility: visible;
 }
 
 .site-header__list {
@@ -107,7 +143,8 @@ a:visited {
   height: 40px;
 }
 
-.hamburger-btn {
+.hamburger-btn,
+.form-btn {
   background: transparent;
   border: 0;
   display: inline-block;
@@ -115,11 +152,17 @@ a:visited {
   cursor: pointer;
 }
 
-.hamburger-btn__box {
+.hamburger-btn__box,
+.form-btn__box {
   display: inline-block;
   position: relative;
   width: 35px;
   height: 30px;
+}
+
+.form-btn__img {
+  width: 100%;
+  height: 100%;
 }
 
 .hamburger-btn__inner,
