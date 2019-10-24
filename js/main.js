@@ -9,4 +9,4 @@ x.addEventListener('click', () => {
 
 z.addEventListener('click', () => {
   v.classList.toggle('site-header__form--active');
-})
+});
