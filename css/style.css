@@ -227,9 +227,10 @@ a:visited {
 .main {
   min-width: 320px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   row-gap: 1.5px;
   column-gap: 1.5px;
+  padding: 5px;
 }
 
 .sticker {
@@ -240,13 +241,19 @@ a:visited {
 .sticker__header {
   display: grid;
   grid-auto-rows: 45px;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-auto-flow: dense;
   background-color: pink;
 }
 
 .sticker__title {
   font-size: 1rem;
   font-weight: normal;
+}
+
+.sticker__nav-cnt {
+  width: 100%;
+  grid-column: span 2;
 }
 
 .sticker__nav-list {
