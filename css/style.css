@@ -222,12 +222,41 @@ a:visited {
   transform: translateY(-12px) rotate(-45deg);
 }
 
+/* add menu0 sticker */
+
+.add-sticker-menu {
+  width: 320px;
+  height: 400px;
+  background-color: var(--primaryColor);
+  padding: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(-320px);
+  display: none;
+  border-radius: 10px;
+}
+
+.add-sticker-menu--active {
+  display: block;
+  transform: translateX(0) translateX(-50%);
+  margin-top: 100px;
+  left: 50%;
+}
+
+.add-sticker-menu__form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column wrap;
+}
+
 /* stickers */
 
 .main {
   min-width: 320px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   row-gap: 1.5px;
   column-gap: 1.5px;
   padding: 5px;
@@ -242,7 +271,6 @@ a:visited {
   display: grid;
   grid-auto-rows: 45px;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  grid-auto-flow: dense;
   background-color: pink;
 }
 

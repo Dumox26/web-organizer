@@ -26,7 +26,7 @@
       </div>
       <div class="site-header__navigation">
         <ul class="site-header__list">
-          <li class="site-header__item"><button class="site-header__btn">Dodaj</button></li>
+          <li class="site-header__item"><button class="site-header__btn" id="add-sticker">Dodaj</button></li>
           <li class="site-header__item"><button class="site-header__btn">Usun</button></li>
           <li class="site-header__item"><button class="site-header__btn">Zaloguj</button></li>
         </ul>
@@ -42,6 +42,16 @@
             <img src="img/loupe.ico" alt="magnifying glass" class="form-btn__img">
           </span>
         </button>
+      </div>
+      <div class="add-sticker-menu">
+        <form action="" class="add-sticker-menu__form">
+          <input type="text" class="add-sticker-menu__sticker-title-input" placeholder="wpisz tytuł zdarzenia" required>
+          <input type="date" class="add-sticker-menu__sticker-date-input" placeholder="wpisz datę" required>
+          <input type="datetime" class="add-sticker-menu__sticker-datetime-input" placeholder="wpisz godzinę">
+          <textarea class="add-sticker-menu__sticker-textarea" placeholder="Wpisz wydarzenie"></textarea>
+          <button type="submit" class="add-sticker-menu__submit-sticker">potwierdź</button>
+          <button type="button" class="add-sticker-menu__abandon-sticker">anuluj</button>
+        </form>
       </div>
     </nav>
   </header>
@@ -142,7 +152,8 @@
   -->
   <!-- stopka strony narazie brak pomysłu. Pradopodobnie opis strony (lorem ipsum) i kontakt -->
 
-  <script src="js/main.js"></script>
+  <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/stickerClass.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://kit.fontawesome.com/4c4b968272.js"></script>
 </body>

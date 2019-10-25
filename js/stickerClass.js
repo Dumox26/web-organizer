@@ -1,8 +1,9 @@
-'use strick';
-
 class StickerClass {
-
-  set(title) {
+  constructor(title, date, description) {
     this.title = title;
+    this.date = date;
+    this.description = description;
   }
 }
+
+export default StickerClass;
