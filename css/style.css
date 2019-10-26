@@ -267,6 +267,10 @@ a:visited {
   border: 1.5px solid black;
 }
 
+.sticker-template {
+  display: none;
+}
+
 .sticker__header {
   display: grid;
   grid-auto-rows: 45px;

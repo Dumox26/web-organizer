@@ -44,12 +44,12 @@
         </button>
       </div>
       <div class="add-sticker-menu">
-        <form action="" class="add-sticker-menu__form">
+        <form action="" method="GET" class="add-sticker-menu__form">
           <input type="text" class="add-sticker-menu__sticker-title-input" placeholder="wpisz tytuł zdarzenia" required>
           <input type="date" class="add-sticker-menu__sticker-date-input" placeholder="wpisz datę" required>
-          <input type="datetime" class="add-sticker-menu__sticker-datetime-input" placeholder="wpisz godzinę">
+          <input type="time" class="add-sticker-menu__sticker-time-input" placeholder="wpisz godzinę">
           <textarea class="add-sticker-menu__sticker-textarea" placeholder="Wpisz wydarzenie"></textarea>
-          <button type="submit" class="add-sticker-menu__submit-sticker">potwierdź</button>
+          <button type="submit" class="add-sticker-menu__submit-sticker" return="false">potwierdź</button>
           <button type="button" class="add-sticker-menu__abandon-sticker">anuluj</button>
         </form>
       </div>
@@ -57,9 +57,9 @@
   </header>
 
   <main class="main">
-    <article class="sticker">
+    <article class="sticker sticker-template">
       <header class="sticker__header">
-        <h2 class="sticker__title">pamietaj o smierci</h2>
+        <h2 class="sticker__title"></h2>
         <div class="sticker__time-cnt">
           <time datetime="2018-07-07" class="sticker__time">
             7 lipiec
@@ -74,70 +74,9 @@
         </div>
       </header>
       <div class="sticker__content">
-        fajne zdarzenie
-      </div>
-    </article>
-    <article class="sticker">
-      <header class="sticker__header">
-        <h2 class="sticker__title">pamietaj o smierci</h2>
-        <div class="sticker__time-cnt">
-          <time datetime="2018-07-07" class="sticker__time">
-            7 lipiec
-          </time>
-        </div>
-        <div class="sticker__nav-cnt">
-          <ul class="sticker__nav-list">
-            <li class="sticker__nav-item"><button class="sticker__nav-button">Dodaj</button></li>
-            <li class="sticker__nav-item"><button class="sticker__nav-button">Usuń</button></li>
-            <li class="sticker__nav-item"><button class="sticker__nav-button">testowy</button></li>
-          </ul>
-        </div>
-      </header>
-      <div class="sticker__content">
-        fajne zdarzenie
-      </div>
-    </article>
-    <article class="sticker">
-      <header class="sticker__header">
-        <h2 class="sticker__title">pamietaj o smierci</h2>
-        <div class="sticker__time-cnt">
-          <time datetime="2018-07-07" class="sticker__time">
-            7 lipiec
-          </time>
-        </div>
-        <div class="sticker__nav-cnt">
-          <ul class="sticker__nav-list">
-            <li class="sticker__nav-item"><button class="sticker__nav-button">Dodaj</button></li>
-            <li class="sticker__nav-item"><button class="sticker__nav-button">Usuń</button></li>
-            <li class="sticker__nav-item"><button class="sticker__nav-button">testowy</button></li>
-          </ul>
-        </div>
-      </header>
-      <div class="sticker__content">
-        fajne zdarzenie
-      </div>
-    </article>
-    <article class="sticker">
-      <header class="sticker__header">
-        <h2 class="sticker__title">pamietaj o smierci</h2>
-        <div class="sticker__time-cnt">
-          <time datetime="2018-07-07" class="sticker__time">
-            7 lipiec
-          </time>
-        </div>
-        <div class="sticker__nav-cnt">
-          <ul class="sticker__nav-list">
-            <li class="sticker__nav-item"><button class="sticker__nav-button">Dodaj</button></li>
-            <li class="sticker__nav-item"><button class="sticker__nav-button">Usuń</button></li>
-            <li class="sticker__nav-item"><button class="sticker__nav-button">testowy</button></li>
-          </ul>
-        </div>
-      </header>
-      <div class="sticker__content">
-        fajne zdarzenie
-      </div>
-    </article>
 
+      </div>
+    </article>
 
   </main>
   <footer>
