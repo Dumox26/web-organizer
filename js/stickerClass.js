@@ -13,19 +13,6 @@ class StickerClass {
       console.log(error);
     }
   }
-
-  createHtmlSticker() {
-    const stickerCnt = document.querySelector('.main');
-    const stickerTemplate = document.querySelector('.sticker-template');
-    const newStickerHtml = stickerTemplate.cloneNode(true);
-    console.log(newStickerHtml);
-    newStickerHtml.classList.remove('sticker-template');
-    stickerCnt.appendChild(newStickerHtml);
-  }
-
-  fillHtmlSticker() {
-
-  }
 }
 
 export default StickerClass;

@@ -1,11 +1,13 @@
-// eslint-disable-next-line import/extensions
-import StickerClass from './stickerClass.js';
+/* eslint-disable import/extensions */
+// import StickerClass from './stickerClass.js';
+// import StickersClass from './stickersClass.js';
 
 const handleMenuClick = () => {
   const hamburgerBtn = document.querySelector('.hamburger-btn');
   const siteHeaderNav = document.querySelector('.site-header__navigation');
   hamburgerBtn.classList.toggle('hamburger-btn--active');
   siteHeaderNav.classList.toggle('site-header__navigation--active');
+  console.log('click menu');
 };
 
 const handleSearchClick = () => {
@@ -13,13 +15,14 @@ const handleSearchClick = () => {
   siteHeaderForm.classList.toggle('site-header__form--active');
 };
 
-const createSticker = (stickerTitleValue, stickerDateValue, stickerTimeValue, stickerTextValue) => {
-  const sticker = new StickerClass(stickerTitleValue, stickerDateValue,
-    stickerTimeValue, stickerTextValue);
-  console.log(sticker);
-  sticker.saveStickerInLocalStorage();
-  sticker.createHtmlSticker();
-};
+// const createSticker = (stickerTitleValue, stickerDateValue,
+// stickerTimeValue, stickerTextValue) => {
+//   const sticker = new StickerClass(stickerTitleValue, stickerDateValue,
+//     stickerTimeValue, stickerTextValue);
+//   console.log(sticker);
+//   sticker.saveStickerInLocalStorage();
+//   sticker.createHtmlSticker();
+// };
 
 const handleSubmitStickerClick = () => {
   event.preventDefault();
@@ -27,10 +30,8 @@ const handleSubmitStickerClick = () => {
   const stickerFormDateInput = document.querySelector('.add-sticker-menu__sticker-date-input');
   const stickerFormTimeInput = document.querySelector('.add-sticker-menu__sticker-time-input');
   const stickerFormTextarea = document.querySelector('.add-sticker-menu__sticker-textarea');
-  console.log(stickerFormDateInput);
-  console.log('test');
-  createSticker(stickerFormTitleInput.value, stickerFormDateInput.value, stickerFormTimeInput.value,
-    stickerFormTextarea.value);
+  stickersOverlord.createSticker(stickerFormTitleInput.value, stickerFormDateInput.value,
+    stickerFormTimeInput.value, stickerFormTextarea.value);
 };
 
 const handleAddStickerClick = () => {
