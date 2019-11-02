@@ -35,11 +35,4 @@ class StorageMenager {
     }
   }
 }
-const storage = new StorageMenager();
-if (storage.loadStickersFromLocalStorage()) {
-  storage.stickersColection.forEach((stickerObj) => {
-    const sticker = new Sticker(stickerObj.title,
-      stickerObj.data, stickerObj.time, stickerObj.description);
-  });
-}
 export default StorageMenager;

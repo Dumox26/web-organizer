@@ -55,3 +55,4 @@ document.querySelectorAll('.site-header__btn').forEach((btn) => btn.addEventList
 document.querySelector('.add-sticker-menu__submit-sticker').addEventListener('click', handleSubmitStickerClick);
 document.querySelector('.add-sticker-menu__abandon-sticker').addEventListener('click', handleAbandonStickerClick);
 // });
+export default storage;

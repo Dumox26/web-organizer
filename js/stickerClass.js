@@ -1,4 +1,4 @@
-import Storage from './storageClass.js';
+import storageRef from './main.js'
 
 class Sticker {
   constructor(title, date, time, description) {
@@ -45,19 +45,20 @@ class Sticker {
 
   deleteSticker = (stickerHtml) => {
     stickerHtml.remove();
-    const storage = new Storage();
-    storage.loadStickersFromLocalStorage();
+    const storage = storageRef;
     storage.removeStickerFromStorage(this);
-    storage.saveStickersInLocalStorage();
   }
 
   bindStickerBtn = (stickerHtml) => {
     const stickerBtn = stickerHtml.querySelector('#stickerDeleteBtn');
     stickerBtn.addEventListener('click', () => {
-      console.log(stickerHtml);
       this.deleteSticker(stickerHtml);
     });
   }
+
+  // addStickerToColection = (storage) => {
+  //   this.stickersColection.push(sticker);
+  // }
 };
 
 export default Sticker;
