@@ -1,33 +1,45 @@
-// /* eslint-disable class-methods-use-this */
-// // eslint-disable-next-line import/extensions
-// import StickersMenager from './stickerClass.js';
+class StorageMenager {
+  constructor() {
+    this.stickersColection = [];
+    this.stickerStorageKey = 'stickersArray';
+  }
 
-// class StickersMenager {
-//     constructor() {
-//         this.stickersArray = [];
-//     }
+  saveStickersInLocalStorage = () => {
+    localStorage.setItem(this.stickerStorageKey, JSON.stringify(this.stickersColection));
+  }
 
-//     createSticker(stickerTitle, stickerDate, stickerTime, stickerText) {
-//         const sticker = new StickersMenager(stickerTitle, stickerDate, stickerTime, stickerText);
-//         sticker.saveStickerInLocalStorage();
-//         this.createHtmlSticker(sticker);
-//     }
+  loadStickersFromLocalStorage = () => {
+    if (localStorage.getItem(this.stickerStorageKey) != null) {
+      this.stickersColection = JSON.parse(localStorage.getItem(this.stickerStorageKey));
+      return true;
+    } else {
+      return false;
+    }
+  }
 
-//     createHtmlSticker(stickerObject) {
-//         const stickerCnt = document.querySelector('.main');
-//         const stickerTemplate = document.querySelector('.sticker-template');
-//         const newStickerHtml = stickerTemplate.cloneNode(true);
+  addStickerToColection = (sticker) => {
+    this.stickersColection.push(sticker);
+  }
 
-//         const stickerHtmlTitle = newStickerHtml.querySelector('.sticker__title');
-//         // const stickerHtmlDate = newStickerHtml.querySelector('sticker__title');
-//         // const stickerHtmlTime = newStickerHtml.querySelector('sticker__title');
-//         // const stickerHtmlText = newStickerHtml.querySelector('.sticker__text');
-
-//         stickerHtmlTitle.textContent = stickerObject.title;
-//         // stickerHtmlText.value = stickerObject.description;
-//         newStickerHtml.classList.remove('sticker-template');
-//         stickerCnt.appendChild(newStickerHtml);
-//     }
-// }
-
-// export default StickersClass;
+  removeStickerFromStorage = (sticker) => {
+    let stickersColectionTmp = [];
+    stickersColectionTmp = this.stickersColection.filter((elem) => {
+      return elem.title != sticker.title;
+    });
+    this.stickersColection = stickersColectionTmp;
+    this.saveStickersInLocalStorage();
+    if (JSON.parse(localStorage.getItem(this.stickerStorageKey)).length == 0) {
+      localStorage.removeItem(this.stickerStorageKey);
+      window.localStorage.clear();
+      console.log("fsafaf");
+    }
+  }
+}
+const storage = new StorageMenager();
+if (storage.loadStickersFromLocalStorage()) {
+  storage.stickersColection.forEach((stickerObj) => {
+    const sticker = new Sticker(stickerObj.title,
+      stickerObj.data, stickerObj.time, stickerObj.description);
+  });
+}
+export default StorageMenager;

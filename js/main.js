@@ -1,13 +1,21 @@
 /* eslint-disable import/extensions */
-// import StickerClass from './stickerClass.js';
-// import StickersClass from './stickersClass.js';
+import Sticker from './stickerClass.js';
+import StorageMenager from './storageClass.js';
+
+// window.addEventListener('DOMContentLoaded', (event) => {
+const storage = new StorageMenager();
+if (storage.loadStickersFromLocalStorage()) {
+  storage.stickersColection.forEach((stickerObj) => {
+    const sticker = new Sticker(stickerObj.title,
+      stickerObj.data, stickerObj.time, stickerObj.description);
+  });
+}
 
 const handleMenuClick = () => {
   const hamburgerBtn = document.querySelector('.hamburger-btn');
   const siteHeaderNav = document.querySelector('.site-header__navigation');
   hamburgerBtn.classList.toggle('hamburger-btn--active');
   siteHeaderNav.classList.toggle('site-header__navigation--active');
-  console.log('click menu');
 };
 
 const handleSearchClick = () => {
@@ -15,29 +23,29 @@ const handleSearchClick = () => {
   siteHeaderForm.classList.toggle('site-header__form--active');
 };
 
-// const createSticker = (stickerTitleValue, stickerDateValue,
-// stickerTimeValue, stickerTextValue) => {
-//   const sticker = new StickerClass(stickerTitleValue, stickerDateValue,
-//     stickerTimeValue, stickerTextValue);
-//   console.log(sticker);
-//   sticker.saveStickerInLocalStorage();
-//   sticker.createHtmlSticker();
-// };
-
-const handleSubmitStickerClick = () => {
-  event.preventDefault();
-  const stickerFormTitleInput = document.querySelector('.add-sticker-menu__sticker-title-input');
-  const stickerFormDateInput = document.querySelector('.add-sticker-menu__sticker-date-input');
-  const stickerFormTimeInput = document.querySelector('.add-sticker-menu__sticker-time-input');
-  const stickerFormTextarea = document.querySelector('.add-sticker-menu__sticker-textarea');
-  stickersOverlord.createSticker(stickerFormTitleInput.value, stickerFormDateInput.value,
-    stickerFormTimeInput.value, stickerFormTextarea.value);
-};
-
 const handleAddStickerClick = () => {
   const addStickerMenu = document.querySelector('.add-sticker-menu');
   addStickerMenu.classList.toggle('add-sticker-menu--active');
-  // const sticker = new StickerClass('12321', '1441');
+};
+
+const handleAbandonStickerClick = () => {
+  const addStickerMenu = document.querySelector('.add-sticker-menu');
+  addStickerMenu.classList.toggle('add-sticker-menu--active');
+};
+
+const handleSubmitStickerClick = () => {
+  event.preventDefault();
+  const stickerFormTitleInput = document.querySelector('.add-sticker-menu__sticker-title-input').value;
+  const stickerFormDateInput = document.querySelector('.add-sticker-menu__sticker-date-input').value;
+  const stickerFormTimeInput = document.querySelector('.add-sticker-menu__sticker-time-input').value;
+  const stickerFormTextarea = document.querySelector('.add-sticker-menu__sticker-textarea').value;
+
+  const sticker = new Sticker(stickerFormTitleInput, stickerFormDateInput,
+    stickerFormTimeInput, stickerFormTextarea);
+
+  handleAddStickerClick();
+  storage.addStickerToColection(sticker);
+  storage.saveStickersInLocalStorage();
 };
 
 document.querySelector('.hamburger-btn').addEventListener('click', handleMenuClick);
@@ -45,3 +53,5 @@ document.querySelector('.form-btn').addEventListener('click', handleSearchClick)
 document.querySelector('#add-sticker').addEventListener('click', handleAddStickerClick);
 document.querySelectorAll('.site-header__btn').forEach((btn) => btn.addEventListener('click', handleMenuClick));
 document.querySelector('.add-sticker-menu__submit-sticker').addEventListener('click', handleSubmitStickerClick);
+document.querySelector('.add-sticker-menu__abandon-sticker').addEventListener('click', handleAbandonStickerClick);
+// });
