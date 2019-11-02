@@ -30,8 +30,6 @@ class StorageMenager {
     this.saveStickersInLocalStorage();
     if (JSON.parse(localStorage.getItem(this.stickerStorageKey)).length == 0) {
       localStorage.removeItem(this.stickerStorageKey);
-      window.localStorage.clear();
-      console.log("fsafaf");
     }
   }
 }
