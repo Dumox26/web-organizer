@@ -1,13 +1,13 @@
 import storageRef from './main.js'
 
 class Sticker {
-  constructor(title, date, time, description) {
+  constructor(title, date, time, description, id = 0) {
     this.title = title;
     this.date = date;
     this.time = time;
     this.description = description;
     this.appendHtmlStickerToDOM();
-    this.id;
+    this.id = id;
   }
 
   createHtmlSticker = () => {
@@ -43,6 +43,10 @@ class Sticker {
     stickersHtmlCnt.appendChild(stickerHtml);
   }
 
+  set stickerId(id) {
+    this.id = id;
+  }
+
   deleteSticker = (stickerHtml) => {
     stickerHtml.remove();
     const storage = storageRef;
@@ -55,10 +59,6 @@ class Sticker {
       this.deleteSticker(stickerHtml);
     });
   }
-
-  // addStickerToColection = (storage) => {
-  //   this.stickersColection.push(sticker);
-  // }
 };
 
 export default Sticker;

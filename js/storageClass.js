@@ -17,14 +17,24 @@ class StorageMenager {
     }
   }
 
+  setStickerId = (sticker) => {
+    const length = this.stickersColection.length;
+    if (this.stickersColection.length == 0) {
+      sticker.stickerId = 1;
+    } else {
+      sticker.stickerId = this.stickersColection[length - 1].id + 1;
+    }
+  }
+
   addStickerToColection = (sticker) => {
+    this.setStickerId(sticker);
     this.stickersColection.push(sticker);
   }
 
   removeStickerFromStorage = (sticker) => {
     let stickersColectionTmp = [];
     stickersColectionTmp = this.stickersColection.filter((elem) => {
-      return elem.title != sticker.title;
+      return elem.id != sticker.id;
     });
     this.stickersColection = stickersColectionTmp;
     this.saveStickersInLocalStorage();
