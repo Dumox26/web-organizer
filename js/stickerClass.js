@@ -21,7 +21,7 @@ class Sticker {
           </div>
           <div class="sticker__nav-cnt">
             <ul class="sticker__nav-list">
-              <li class="sticker__nav-item"><button class="sticker__nav-button">Dodaj</button></li>
+              <li class="sticker__nav-item"><button class="sticker__nav-button">Modyfikuj</button></li>
               <li class="sticker__nav-item"><button id="stickerDeleteBtn" class="sticker__nav-button">Usuń</button></li>
               <li class="sticker__nav-item"><button class="sticker__nav-button">testowy</button></li>
             </ul>

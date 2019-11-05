@@ -36,6 +36,7 @@ class StorageMenager {
     stickersColectionTmp = this.stickersColection.filter((elem) => {
       return elem.id != sticker.id;
     });
+
     this.stickersColection = stickersColectionTmp;
     this.saveStickersInLocalStorage();
     if (JSON.parse(localStorage.getItem(this.stickerStorageKey)).length == 0) {

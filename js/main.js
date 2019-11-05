@@ -2,7 +2,6 @@
 import Sticker from './stickerClass.js';
 import StorageMenager from './storageClass.js';
 
-// window.addEventListener('DOMContentLoaded', (event) => {
 const storage = new StorageMenager();
 if (storage.loadStickersFromLocalStorage()) {
   storage.stickersColection.forEach((stickerObj) => {
@@ -34,7 +33,6 @@ const handleAbandonStickerClick = () => {
 };
 
 const handleSubmitStickerClick = () => {
-  // event.preventDefault();
   const stickerFormTitleInput = document.querySelector('.add-sticker-menu__sticker-title-input').value;
   const stickerFormDateInput = document.querySelector('.add-sticker-menu__sticker-date-input').value;
   const stickerFormTimeInput = document.querySelector('.add-sticker-menu__sticker-time-input').value;
@@ -54,5 +52,4 @@ document.querySelector('#add-sticker').addEventListener('click', handleAddSticke
 document.querySelectorAll('.site-header__btn').forEach((btn) => btn.addEventListener('click', handleMenuClick));
 document.querySelector('.add-sticker-menu__form').addEventListener('submit', handleSubmitStickerClick);
 document.querySelector('.add-sticker-menu__abandon-sticker').addEventListener('click', handleAbandonStickerClick);
-// });
 export default storage;
