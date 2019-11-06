@@ -43,5 +43,15 @@ class StorageMenager {
       localStorage.removeItem(this.stickerStorageKey);
     }
   }
+
+  submitChangesInStorage = (sticker) => {
+    this.stickersColection.forEach(element => {
+      if (element.id === sticker.id) {
+        Object.assign(element, sticker);
+      }
+    });
+    this.saveStickersInLocalStorage();
+  }
+
 }
 export default StorageMenager;

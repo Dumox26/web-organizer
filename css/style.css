@@ -251,16 +251,18 @@ a:visited {
   flex-flow: column wrap;
 }
 
-/* stickers */
+/* main */
 
 .main {
   min-width: 320px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 500px));
   row-gap: 1.5px;
   column-gap: 1.5px;
   padding: 5px;
 }
+
+/* stickers */
 
 .sticker {
   background-color: green;
@@ -272,6 +274,13 @@ a:visited {
 }
 
 .sticker__header {
+  /* display: grid;
+  grid-auto-rows: 45px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); */
+  background-color: pink;
+}
+
+.sticker__form {
   display: grid;
   grid-auto-rows: 45px;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -295,6 +304,12 @@ a:visited {
 .sticker__content {
   width: 100%;
   height: 200px;
+  background: green;
+  display: flex;
+}
+
+.sticker__textarea {
+  resize: none;
 }
 
 @media (min-width: 768px) {

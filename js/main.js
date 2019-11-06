@@ -33,6 +33,7 @@ const handleAbandonStickerClick = () => {
 };
 
 const handleSubmitStickerClick = () => {
+  event.preventDefault();
   const stickerFormTitleInput = document.querySelector('.add-sticker-menu__sticker-title-input').value;
   const stickerFormDateInput = document.querySelector('.add-sticker-menu__sticker-date-input').value;
   const stickerFormTimeInput = document.querySelector('.add-sticker-menu__sticker-time-input').value;
