@@ -58,7 +58,7 @@ class Sticker {
     return htmlSticker;
   }
 
-  fillStickerHtmlObject = () => {
+  fillStickerHtmlObjectWithData = () => {
     const stickerHtml = this.createHtmlSticker();
     const stickerHtmlTitle = stickerHtml.querySelector('.sticker__input-text');
     const stickerHtmlDate = stickerHtml.querySelector('.sticker__input-date');
@@ -73,7 +73,7 @@ class Sticker {
   }
 
   appendHtmlStickerToDOM = () => {
-    const stickerHtml = this.fillStickerHtmlObject();
+    const stickerHtml = this.fillStickerHtmlObjectWithData();
     this.bindStickerBtn(stickerHtml);
     const stickersHtmlCnt = document.querySelector('.main');
     stickersHtmlCnt.appendChild(stickerHtml);
