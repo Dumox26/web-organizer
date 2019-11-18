@@ -3,12 +3,11 @@ import Sticker from './stickerClass.js';
 import StorageMenager from './storageClass.js';
 
 const storage = new StorageMenager();
-if (storage.loadStickersFromLocalStorage()) {
-  storage.stickersColection.forEach((stickerObj) => {
-    const sticker = new Sticker(stickerObj.title,
-      stickerObj.data, stickerObj.time, stickerObj.description, stickerObj.id);
-  });
-}
+const stickers = storage.loadData('stickersArray', []);
+console.log(stickers);
+stickers.forEach((sticker) => {
+  const stickerObj = new Sticker(sticker.title, sticker.data, sticker.time, sticker.description, sticker.id);
+});
 
 const handleMenuClick = () => {
   const hamburgerBtn = document.querySelector('.hamburger-btn');
@@ -43,8 +42,9 @@ const handleSubmitStickerClick = () => {
     stickerFormTimeInput, stickerFormTextarea);
 
   handleAddStickerClick();
-  storage.addStickerToColection(sticker);
-  storage.saveStickersInLocalStorage();
+  sticker.setStickerId(sticker);
+  sticker.addSticker(sticker);
+  console.log(sticker);
 };
 
 document.querySelector('.hamburger-btn').addEventListener('click', handleMenuClick);
@@ -53,4 +53,3 @@ document.querySelector('#add-sticker').addEventListener('click', handleAddSticke
 document.querySelectorAll('.site-header__btn').forEach((btn) => btn.addEventListener('click', handleMenuClick));
 document.querySelector('.add-sticker-menu__form').addEventListener('submit', handleSubmitStickerClick);
 document.querySelector('.add-sticker-menu__abandon-sticker').addEventListener('click', handleAbandonStickerClick);
-export default storage;

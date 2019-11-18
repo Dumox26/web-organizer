@@ -1,57 +1,13 @@
-class StorageMenager {
-  constructor() {
-    this.stickersColection = [];
-    this.stickerStorageKey = 'stickersArray';
+class Storage {
+
+  saveData = (data, key) => {
+    window.localStorage.setItem(key, JSON.stringify(data));
   }
 
-  saveStickersInLocalStorage = () => {
-    localStorage.setItem(this.stickerStorageKey, JSON.stringify(this.stickersColection));
+  loadData = (key, defaultValue = {}) => {
+    const data = window.localStorage.getItem(key);
+
+    return (data) ? JSON.parse(data) : defaultValue;
   }
-
-  loadStickersFromLocalStorage = () => {
-    if (localStorage.getItem(this.stickerStorageKey) != null) {
-      this.stickersColection = JSON.parse(localStorage.getItem(this.stickerStorageKey));
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  setStickerId = (sticker) => {
-    const length = this.stickersColection.length;
-    if (this.stickersColection.length == 0) {
-      sticker.stickerId = 1;
-    } else {
-      sticker.stickerId = this.stickersColection[length - 1].id + 1;
-    }
-  }
-
-  addStickerToColection = (sticker) => {
-    this.setStickerId(sticker);
-    this.stickersColection.push(sticker);
-  }
-
-  removeStickerFromStorage = (sticker) => {
-    let stickersColectionTmp = [];
-    stickersColectionTmp = this.stickersColection.filter((elem) => {
-      return elem.id != sticker.id;
-    });
-
-    this.stickersColection = stickersColectionTmp;
-    this.saveStickersInLocalStorage();
-    if (JSON.parse(localStorage.getItem(this.stickerStorageKey)).length == 0) {
-      localStorage.removeItem(this.stickerStorageKey);
-    }
-  }
-
-  submitChangesInStorage = (sticker) => {
-    this.stickersColection.forEach(element => {
-      if (element.id === sticker.id) {
-        Object.assign(element, sticker);
-      }
-    });
-    this.saveStickersInLocalStorage();
-  }
-
 }
-export default StorageMenager;
+export default Storage;

@@ -1,7 +1,8 @@
-import storageRef from './main.js'
+import StickersMenager from './stickersMenagerClass.js'
 
-class Sticker {
+class Sticker extends StickersMenager {
   constructor(title, date, time, description, id = 0) {
+    super();
     this.title = title;
     this.date = date;
     this.time = time;
@@ -10,7 +11,7 @@ class Sticker {
     this.id = id;
   }
 
-  set stickerId(id) {
+  set newId(id) {
     this.id = id;
   }
 
@@ -50,7 +51,8 @@ class Sticker {
       <div class="sticker__content">
         <form action="" method="get" class="sticker__form-content">
           <textarea name="" id="" cols="15" rows="10" class="sticker__textarea"></textarea>
-        </form>
+          <button type="submit" class="sticker__submit-content" hidden></button>
+          </form>
       </div>`
     const htmlSticker = document.createElement('article');
     htmlSticker.classList.add('sticker');
@@ -79,10 +81,9 @@ class Sticker {
     stickersHtmlCnt.appendChild(stickerHtml);
   }
 
-  deleteSticker = (stickerHtml) => {
+  removeStickerFromDOM = (stickerHtml) => {
     stickerHtml.remove();
-    const storage = storageRef;
-    storage.removeStickerFromStorage(this);
+    this.removeStickerFromStorage(this.id);
   }
 
   submitChangesInStickerHeader = (stickerHtml) => {
@@ -94,19 +95,20 @@ class Sticker {
     this.newDate = stickerHtmlDate.value;
     this.newTime = stickerHtmlTime.value;
 
-    const storage = storageRef;
-    storage.submitChangesInStorage(this);
+    this.submitChangesInStorage(this);
   }
 
-  submitChangesInStickerContent = (stickerHtml) => {
-    const stickerHtmlTextarea = stickerHtml.querySelector('.sticker__textarea');
-    this.newDescription(stickerHtmlTextarea.value);
-  }
+  // submitChangesInStickerContent = (stickerHtml) => {
+  //   const stickerHtmlTextarea = stickerHtml.querySelector('.sticker__textarea');
+  //   this.newDescription(stickerHtmlTextarea.value);
+
+  //   this.submitChangesInStorage(this);
+  // }
 
   bindStickerBtn = (stickerHtml) => {
     const stickerBtn = stickerHtml.querySelector('#stickerDeleteBtn');
     stickerBtn.addEventListener('click', () => {
-      this.deleteSticker(stickerHtml);
+      this.removeStickerFromDOM(stickerHtml);
     });
 
     const stickerForm = stickerHtml.querySelector('.sticker__form');
@@ -115,32 +117,13 @@ class Sticker {
       this.submitChangesInStickerHeader(stickerHtml);
     });
 
-    const stickerContentForm = stickerHtml.querySelector('.sticker__form-content');
-    stickerContentForm.addEventListener('submit', () => {
-      event.preventDefault();
-      this.submitChangesInStickerContent(stickerHtml);
-    })
+    // const stickerContentForm = stickerHtml.querySelector('.sticker__form-content');
+    // stickerContentForm.addEventListener('submit', () => {
+    //   event.preventDefault();
+    //   console.log("submit");
+    //   this.submitChangesInStickerContent(stickerHtml);
+    // });
   }
 };
 
 export default Sticker;
-
-
-{/* <header class="sticker__header">
-  <h2 class="sticker__title">${this.title}</h2>
-  <div class="sticker__time-cnt">
-    <time datetime="" class="sticker__time">
-      ${this.date}
-    </time>
-  </div>
-  <div class="sticker__nav-cnt">
-    <ul class="sticker__nav-list">
-      <li class="sticker__nav-item"><button class="sticker__nav-button">Modyfikuj</button></li>
-      <li class="sticker__nav-item"><button id="stickerDeleteBtn" class="sticker__nav-button">Usuń</button></li>
-      <li class="sticker__nav-item"><button class="sticker__nav-button">testowy</button></li>
-    </ul>
-  </div>
-</header>
-  <div class="sticker__content">
-    ${this.description}
-  </div>` */}
