@@ -25,7 +25,7 @@ class StickersMenager extends Storage {
   }
 
   setStickerId = (sticker) => {
-    const stickers = this.loadData(this.storageKey, []);
+    const stickers = this.loadAllStickers();
     const length = stickers.length;
     if (length === 0) {
       sticker.newId = 1;
@@ -35,7 +35,7 @@ class StickersMenager extends Storage {
   }
 
   submitChangesInStorage = (sticker) => {
-    const stickers = this.loadAllStickers(this.storageKey, []);
+    const stickers = this.loadAllStickers();
     stickers.forEach(element => {
       if (element.id === sticker.id) {
         Object.assign(element, sticker);

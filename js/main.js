@@ -6,7 +6,7 @@ const storage = new StorageMenager();
 const stickers = storage.loadData('stickersArray', []);
 console.log(stickers);
 stickers.forEach((sticker) => {
-  const stickerObj = new Sticker(sticker.title, sticker.data, sticker.time, sticker.description, sticker.id);
+  const stickerObj = new Sticker(sticker.title, sticker.date, sticker.time, sticker.description, sticker.id);
 });
 
 const handleMenuClick = () => {
@@ -44,7 +44,6 @@ const handleSubmitStickerClick = () => {
   handleAddStickerClick();
   sticker.setStickerId(sticker);
   sticker.addSticker(sticker);
-  console.log(sticker);
 };
 
 document.querySelector('.hamburger-btn').addEventListener('click', handleMenuClick);

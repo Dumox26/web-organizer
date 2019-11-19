@@ -86,24 +86,13 @@ class Sticker extends StickersMenager {
     this.removeStickerFromStorage(this.id);
   }
 
-  submitChangesInStickerHeader = (stickerHtml) => {
-    const stickerHtmlTitle = stickerHtml.querySelector('.sticker__input-text');
-    const stickerHtmlDate = stickerHtml.querySelector('.sticker__input-date');
-    const stickerHtmlTime = stickerHtml.querySelector('.sticker__input-time');
-
-    this.newTitle = stickerHtmlTitle.value;
-    this.newDate = stickerHtmlDate.value;
-    this.newTime = stickerHtmlTime.value;
-
-    this.submitChangesInStorage(this);
+  compareFields = (fieldNewValue, fieldOldValue) => {
+    if (fieldNewValue !== fieldOldValue) {
+      return true;
+    } else {
+      return false;
+    }
   }
-
-  // submitChangesInStickerContent = (stickerHtml) => {
-  //   const stickerHtmlTextarea = stickerHtml.querySelector('.sticker__textarea');
-  //   this.newDescription(stickerHtmlTextarea.value);
-
-  //   this.submitChangesInStorage(this);
-  // }
 
   bindStickerBtn = (stickerHtml) => {
     const stickerBtn = stickerHtml.querySelector('#stickerDeleteBtn');
@@ -111,18 +100,38 @@ class Sticker extends StickersMenager {
       this.removeStickerFromDOM(stickerHtml);
     });
 
-    const stickerForm = stickerHtml.querySelector('.sticker__form');
-    stickerForm.addEventListener('submit', () => {
-      event.preventDefault();
-      this.submitChangesInStickerHeader(stickerHtml);
+    const stickerHtmlTitle = stickerHtml.querySelector('.sticker__input-text');
+    const stickerHtmlDate = stickerHtml.querySelector('.sticker__input-date');
+    const stickerHtmlTime = stickerHtml.querySelector('.sticker__input-time');
+    const stickerHtmlDescription = stickerHtml.querySelector('.sticker__content');
+
+    stickerHtmlTitle.addEventListener('blur', () => {
+      if (this.compareFields(stickerHtmlTitle.value, this.title)) {
+        this.newTitle = stickerHtmlTitle.value;
+        this.submitChangesInStorage(this);
+      }
     });
 
-    // const stickerContentForm = stickerHtml.querySelector('.sticker__form-content');
-    // stickerContentForm.addEventListener('submit', () => {
-    //   event.preventDefault();
-    //   console.log("submit");
-    //   this.submitChangesInStickerContent(stickerHtml);
-    // });
+    stickerHtmlDate.addEventListener('blur', () => {
+      if (this.compareFields(stickerHtmlDate.value, this.date)) {
+        this.newDate = stickerHtmlDate.value;
+        this.submitChangesInStorage(this);
+      }
+    });
+
+    stickerHtmlTime.addEventListener('blur', () => {
+      if (this.compareFields(stickerHtmlTime.value, this.time)) {
+        this.newTime = stickerHtmlTime.value;
+        this.submitChangesInStorage(this);
+      }
+    });
+
+    stickerHtmlDescription.addEventListener('blur', () => {
+      if (this.compareFields(stickerHtmlDescription.description, this.description)) {
+        this.newDescription = stickerHtmlDescription.value;
+        this.submitChangesInStorage(this);
+      }
+    });
   }
 };
 
