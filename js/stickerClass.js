@@ -54,6 +54,7 @@ class Sticker extends StickersMenager {
           <button type="submit" class="sticker__submit-content" hidden></button>
           </form>
       </div>`
+
     const htmlSticker = document.createElement('article');
     htmlSticker.classList.add('sticker');
     htmlSticker.innerHTML = innerHtmlSticker;
