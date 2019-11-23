@@ -1,4 +1,9 @@
 class Storage {
+  constructor() {
+    if (this.constructor === Storage) {
+      throw new Error('Nie mozna stworzyc obiektu klasy abstrakcyjnej');
+    }
+  }
 
   saveData = (data, key) => {
     window.localStorage.setItem(key, JSON.stringify(data));

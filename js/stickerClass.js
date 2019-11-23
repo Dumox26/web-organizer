@@ -1,8 +1,7 @@
 import StickersMenager from './stickersMenagerClass.js'
 
-class Sticker extends StickersMenager {
+class Sticker {
   constructor(title, date, time, description, id = 0) {
-    super();
     this.title = title;
     this.date = date;
     this.time = time;

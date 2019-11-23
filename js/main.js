@@ -1,12 +1,11 @@
 /* eslint-disable import/extensions */
-import Sticker from './stickerClass.js';
-import StorageMenager from './storageClass.js';
+import StickersMenager from './stickersMenagerClass.js';
 
-const storage = new StorageMenager();
-const stickers = storage.loadData('stickersArray', []);
-console.log(stickers);
+const stickersMenager = new StickersMenager();
+const stickers = stickersMenager.loadAllStickers();
 stickers.forEach((sticker) => {
-  const stickerObj = new Sticker(sticker.title, sticker.date, sticker.time, sticker.description, sticker.id);
+  stickersMenager.createSticker(sticker.title, sticker.date,
+    sticker.time, sticker.description, sticker.id);
 });
 
 const handleMenuClick = () => {
@@ -38,12 +37,10 @@ const handleSubmitStickerClick = () => {
   const stickerFormTimeInput = document.querySelector('.add-sticker-menu__sticker-time-input').value;
   const stickerFormTextarea = document.querySelector('.add-sticker-menu__sticker-textarea').value;
 
-  const sticker = new Sticker(stickerFormTitleInput, stickerFormDateInput,
+  const sticker = stickersMenager.createSticker(stickerFormTitleInput, stickerFormDateInput,
     stickerFormTimeInput, stickerFormTextarea);
-
-  handleAddStickerClick();
-  sticker.setStickerId(sticker);
-  sticker.addSticker(sticker);
+  stickersMenager.setStickerId(sticker);
+  stickersMenager.addSticker(sticker);
 };
 
 document.querySelector('.hamburger-btn').addEventListener('click', handleMenuClick);

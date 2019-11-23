@@ -1,4 +1,5 @@
 import Storage from './storageClass.js';
+import Sticker from './stickerClass.js';
 
 class StickersMenager extends Storage {
   constructor() {
@@ -14,6 +15,11 @@ class StickersMenager extends Storage {
     const stickers = this.loadAllStickers();
     stickers.push(sticker);
     this.saveData(stickers, this.storageKey);
+  }
+
+  createSticker = (title, date, time, description = '', id = 0) => {
+    const sticker = new Sticker(title, date, time, description);
+    return sticker;
   }
 
   removeStickerFromStorage = (stickerId) => {
