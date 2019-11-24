@@ -1,5 +1,5 @@
 class Sticker {
-  constructor(title, date, time, description, id = 0, menagerRef) {
+  constructor(title, date, time, description = '', id = 0, menagerRef) {
     this.title = title;
     this.date = date;
     this.time = time;
@@ -105,32 +105,24 @@ class Sticker {
     const stickerHtmlTime = stickerHtml.querySelector('.sticker__input-time');
     const stickerHtmlDescription = stickerHtml.querySelector('.sticker__content');
 
-    stickerHtmlTitle.addEventListener('blur', () => {
-      if (this.compareFields(stickerHtmlTitle.value, this.title)) {
-        this.newTitle = stickerHtmlTitle.value;
-        this.submitChangesInStorage(this);
-      }
+    stickerHtmlTitle.addEventListener('change', () => {
+      this.newTitle = stickerHtmlTitle.value;
+      this.menagerRef.submitChangesInStorage(this);
     });
 
-    stickerHtmlDate.addEventListener('blur', () => {
-      if (this.compareFields(stickerHtmlDate.value, this.date)) {
-        this.newDate = stickerHtmlDate.value;
-        this.submitChangesInStorage(this);
-      }
+    stickerHtmlDate.addEventListener('change', () => {
+      this.newDate = stickerHtmlDate.value;
+      this.menagerRef.submitChangesInStorage(this);
     });
 
-    stickerHtmlTime.addEventListener('blur', () => {
-      if (this.compareFields(stickerHtmlTime.value, this.time)) {
-        this.newTime = stickerHtmlTime.value;
-        this.submitChangesInStorage(this);
-      }
+    stickerHtmlTime.addEventListener('change', () => {
+      this.newTime = stickerHtmlTime.value;
+      this.menagerRef.submitChangesInStorage(this);
     });
 
-    stickerHtmlDescription.addEventListener('blur', () => {
-      if (this.compareFields(stickerHtmlDescription.description, this.description)) {
-        this.newDescription = stickerHtmlDescription.value;
-        this.submitChangesInStorage(this);
-      }
+    stickerHtmlDescription.addEventListener('change', () => {
+      this.newDescription = stickerHtmlDescription.value;
+      this.menagerRef.submitChangesInStorage(this);
     });
   }
 };
