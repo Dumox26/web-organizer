@@ -38,7 +38,7 @@ const handleSubmitStickerClick = () => {
   const stickerFormTextarea = document.querySelector('.add-sticker-menu__sticker-textarea').value;
 
   const sticker = stickersMenager.createSticker(stickerFormTitleInput, stickerFormDateInput,
-    stickerFormTimeInput, stickerFormTextarea);
+    stickerFormTimeInput, stickerFormTextarea, 0);
   stickersMenager.setStickerId(sticker);
   stickersMenager.addSticker(sticker);
 };

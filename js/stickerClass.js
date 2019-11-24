@@ -1,13 +1,12 @@
-import StickersMenager from './stickersMenagerClass.js'
-
 class Sticker {
-  constructor(title, date, time, description, id = 0) {
+  constructor(title, date, time, description, id = 0, menagerRef) {
     this.title = title;
     this.date = date;
     this.time = time;
     this.description = description;
-    this.appendHtmlStickerToDOM();
     this.id = id;
+    this.menagerRef = menagerRef;
+    this.appendHtmlStickerToDOM();
   }
 
   set newId(id) {
@@ -81,9 +80,10 @@ class Sticker {
     stickersHtmlCnt.appendChild(stickerHtml);
   }
 
-  removeStickerFromDOM = (stickerHtml) => {
+  removeSticker = (stickerHtml) => {
     stickerHtml.remove();
-    this.removeStickerFromStorage(this.id);
+    console.log(this.menagerRef);
+    this.menagerRef.removeStickerFromStorage(this.id);
   }
 
   compareFields = (fieldNewValue, fieldOldValue) => {
@@ -97,7 +97,7 @@ class Sticker {
   bindStickerBtn = (stickerHtml) => {
     const stickerBtn = stickerHtml.querySelector('#stickerDeleteBtn');
     stickerBtn.addEventListener('click', () => {
-      this.removeStickerFromDOM(stickerHtml);
+      this.removeSticker(stickerHtml);
     });
 
     const stickerHtmlTitle = stickerHtml.querySelector('.sticker__input-text');

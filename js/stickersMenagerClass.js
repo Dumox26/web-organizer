@@ -17,15 +17,15 @@ class StickersMenager extends Storage {
     this.saveData(stickers, this.storageKey);
   }
 
-  createSticker = (title, date, time, description = '', id = 0) => {
-    const sticker = new Sticker(title, date, time, description);
+  createSticker = (title, date, time, description, id) => {
+    const sticker = new Sticker(title, date, time, description, id, this);
     return sticker;
   }
 
-  removeStickerFromStorage = (stickerId) => {
+  removeStickerFromStorage = (id) => {
     const stickers = this.loadAllStickers();
     const newStickersArray = stickers.filter((elem) => {
-      return elem.id != stickerId;
+      return elem.id !== id;
     })
     this.saveData(newStickersArray, this.storageKey);
   }
