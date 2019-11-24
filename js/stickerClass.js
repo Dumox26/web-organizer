@@ -86,14 +86,6 @@ class Sticker {
     this.menagerRef.removeStickerFromStorage(this.id);
   }
 
-  compareFields = (fieldNewValue, fieldOldValue) => {
-    if (fieldNewValue !== fieldOldValue) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   bindStickerBtn = (stickerHtml) => {
     const stickerBtn = stickerHtml.querySelector('#stickerDeleteBtn');
     stickerBtn.addEventListener('click', () => {
