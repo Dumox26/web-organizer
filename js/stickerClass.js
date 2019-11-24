@@ -51,8 +51,9 @@ class Sticker {
           <textarea name="" id="" cols="15" rows="10" class="sticker__textarea"></textarea>
           <button type="submit" class="sticker__submit-content" hidden></button>
           </form>
-      </div>`
-
+      </div>
+      <input type = "checkbox" name = "" class="sticker__delete-checkbox"
+       id = "delete-check" >`;
     const htmlSticker = document.createElement('article');
     htmlSticker.classList.add('sticker');
     htmlSticker.innerHTML = innerHtmlSticker;

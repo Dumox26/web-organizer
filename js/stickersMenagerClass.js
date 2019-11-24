@@ -30,6 +30,14 @@ class StickersMenager extends Storage {
     this.saveData(newStickersArray, this.storageKey);
   }
 
+  // removeAllStickers = () => {
+  //   const stickers = document.querySelectorAll('.sticker');
+  //   stickers.forEach(sticker => {
+  //     sticker.remove();
+  //   });
+  //   window.localStorage.removeItem(this.storageKey);
+  // }
+
   setStickerId = (sticker) => {
     const stickers = this.loadAllStickers();
     const length = stickers.length;
