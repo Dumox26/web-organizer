@@ -253,6 +253,29 @@ a:visited {
   flex-flow: column wrap;
 }
 
+/* delete stickers menu */
+
+.site-header__delete-stickers-btns {
+  display: flex;
+  position: absolute;
+  top: 0;
+  transform: translateY(-70px);
+  transition: transform ease-in-out 1.5s 1s;
+}
+
+.site-header__delete-stickers-btns--active {
+  display: flex;
+  transform: translateY(170px);
+}
+
+.main__btn-confirm-remove,
+.main__btn-check-all,
+.site-header__btn-abandon-remove {
+  margin: auto;
+  width: 70px;
+  height: 50px;
+}
+
 /* main */
 
 .main {
@@ -262,13 +285,6 @@ a:visited {
   row-gap: 1.5px;
   column-gap: 1.5px;
   padding: 5px;
-}
-
-.main__btn-confirm-remove,
-.main__btn-check-all {
-  margin: auto;
-  width: 250px;
-  height: 50px;
 }
 
 /* stickers */

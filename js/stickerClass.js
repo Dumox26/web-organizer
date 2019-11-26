@@ -76,6 +76,7 @@ class Sticker {
 
   appendHtmlStickerToDOM = () => {
     const stickerHtml = this.fillStickerHtmlObjectWithData();
+    stickerHtml.setAttribute('id', this.id);
     this.bindStickerBtn(stickerHtml);
     const stickersHtmlCnt = document.querySelector('.main');
     stickersHtmlCnt.appendChild(stickerHtml);

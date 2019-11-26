@@ -31,16 +31,19 @@ const handleAbandonStickerClick = () => {
 };
 
 const handleSubmitStickerClick = () => {
-  event.preventDefault();
   const stickerFormTitleInput = document.querySelector('.add-sticker-menu__sticker-title-input').value;
   const stickerFormDateInput = document.querySelector('.add-sticker-menu__sticker-date-input').value;
   const stickerFormTimeInput = document.querySelector('.add-sticker-menu__sticker-time-input').value;
   const stickerFormTextarea = document.querySelector('.add-sticker-menu__sticker-textarea').value;
 
   const sticker = stickersMenager.createSticker(stickerFormTitleInput, stickerFormDateInput,
-    stickerFormTimeInput, stickerFormTextarea, 0);
-  stickersMenager.setStickerId(sticker);
+    stickerFormTimeInput, stickerFormTextarea, stickersMenager.setStickerId());
   stickersMenager.addSticker(sticker);
+};
+
+const handleDeleteClick = () => {
+  const deleteStickersBtns = document.querySelector('.site-header__delete-stickers-btns');
+  deleteStickersBtns.classList.toggle('site-header__delete-stickers-btns--active');
 };
 
 document.querySelector('.hamburger-btn').addEventListener('click', handleMenuClick);
@@ -51,29 +54,30 @@ document.querySelector('.add-sticker-menu__form').addEventListener('submit', han
 document.querySelector('.add-sticker-menu__abandon-sticker').addEventListener('click', handleAbandonStickerClick);
 
 document.querySelector('#delete-sticker').addEventListener('click', () => {
-  const stickersHtml = document.querySelectorAll('.sticker');
-  const stickersHtmlCheckbox = document.querySelectorAll('.sticker__delete-checkbox');
+  // const stickersHtml = document.querySelectorAll('.sticker');
+  // const stickersHtmlCheckbox = document.querySelectorAll('.sticker__delete-checkbox');
 
-  stickersHtmlCheckbox.forEach((checkbox) => {
-    checkbox.classList.toggle('sticker__delete-checkbox--active');
-  });
+  // stickersHtmlCheckbox.forEach((checkbox) => {
+  //   checkbox.classList.toggle('sticker__delete-checkbox--active');
+  // });
+  handleDeleteClick();
 });
 
-document.querySelector('.main__btn-check-all').addEventListener('click', () => {
-  const stickersHtmlCheckbox = document.querySelectorAll('.sticker__delete-checkbox');
-  stickersHtmlCheckbox.forEach((checkbox) => {
-    // eslint-disable-next-line no-param-reassign
-    checkbox.checked = true;
-  });
-});
+// document.querySelector('.main__btn-check-all').addEventListener('click', () => {
+//   const stickersHtmlCheckbox = document.querySelectorAll('.sticker__delete-checkbox');
+//   stickersHtmlCheckbox.forEach((checkbox) => {
+//     // eslint-disable-next-line no-param-reassign
+//     checkbox.checked = true;
+//   });
+// });
 
-document.querySelector('.main__btn-confirm-remove').addEventListener('click', () => {
-  const stickersHtml = document.querySelectorAll('.sticker');
-  const stickersToDelete = Array.from(stickersHtml).filter((sticker) => {
-    return sticker.querySelector('.sticker__delete-checkbox:checked');
-  });
+// document.querySelector('.main__btn-confirm-remove').addEventListener('click', () => {
+//   const stickersHtml = document.querySelectorAll('.sticker');
+//   const stickersToDelete = Array.from(stickersHtml).filter((sticker) => {
+//     return sticker.querySelector('.sticker__delete-checkbox:checked');
+//   });
 
-  stickersToDelete.forEach((stickerHtml) => {
-    console.log(stickerHtml);
-  });
-});
+//   stickersToDelete.forEach((stickerHtml) => {
+//     console.log(stickerHtml);
+//   });
+// });
