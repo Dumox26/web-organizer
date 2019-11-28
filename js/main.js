@@ -20,12 +20,7 @@ const handleSearchClick = () => {
   siteHeaderForm.classList.toggle('site-header__form--active');
 };
 
-const handleAddStickerClick = () => {
-  const addStickerMenu = document.querySelector('.add-sticker-menu');
-  addStickerMenu.classList.toggle('add-sticker-menu--active');
-};
-
-const handleAbandonStickerClick = () => {
+const toggleStickerAddMenu = () => {
   const addStickerMenu = document.querySelector('.add-sticker-menu');
   addStickerMenu.classList.toggle('add-sticker-menu--active');
 };
@@ -87,10 +82,10 @@ const handleCancelDeleteStickerClick = () => {
 
 document.querySelector('.hamburger-btn').addEventListener('click', handleMenuClick);
 document.querySelector('.form-btn').addEventListener('click', handleSearchClick);
-document.querySelector('#add-sticker').addEventListener('click', handleAddStickerClick);
+document.querySelector('#add-sticker').addEventListener('click', toggleStickerAddMenu);
 document.querySelectorAll('.site-header__btn').forEach((btn) => btn.addEventListener('click', handleMenuClick));
 document.querySelector('.add-sticker-menu__form').addEventListener('submit', handleSubmitStickerClick);
-document.querySelector('.add-sticker-menu__abandon-sticker').addEventListener('click', handleAbandonStickerClick);
+document.querySelector('.add-sticker-menu__abandon-sticker').addEventListener('click', toggleStickerAddMenu);
 document.querySelector('#delete-sticker').addEventListener('click', handleDeleteClick);
 document.querySelector('.site-header__btn-check-all').addEventListener('click', handleSelectAllClick);
 document.querySelector('.site-header__btn-abandon-remove').addEventListener('click', handleCancelDeleteStickerClick);
