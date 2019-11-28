@@ -256,16 +256,17 @@ a:visited {
 /* delete stickers menu */
 
 .site-header__delete-stickers-btns {
-  display: flex;
+  display: none;
   position: absolute;
   top: 0;
+  left: 50%;
   transform: translateY(-70px);
-  transition: transform ease-in-out 1.5s 1s;
+  transition: transform ease-in-out 0.5s 0.25s;
 }
 
 .site-header__delete-stickers-btns--active {
   display: flex;
-  transform: translateY(170px);
+  transform: translateY(120px);
 }
 
 .main__btn-confirm-remove,

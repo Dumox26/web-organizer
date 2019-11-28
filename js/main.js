@@ -41,9 +41,48 @@ const handleSubmitStickerClick = () => {
   stickersMenager.addSticker(sticker);
 };
 
-const handleDeleteClick = () => {
+const toggleCheckBoxinStickers = () => {
+  const stickersHtml = document.querySelectorAll('.sticker');
+  Array.from(stickersHtml).forEach((stickerHtml) => {
+    const stickerCheckbox = stickerHtml.querySelector('.sticker__delete-checkbox');
+    stickerCheckbox.classList.toggle('sticker__delete-checkbox--active');
+  });
+};
+
+const setCheckboxesValueToFalse = () => {
+  const stickersHtml = document.querySelectorAll('.sticker');
+  Array.from(stickersHtml).forEach((stickerHtml) => {
+    const stickerCheckbox = stickerHtml.querySelector('.sticker__delete-checkbox');
+    stickerCheckbox.checked = false;
+  });
+};
+
+const toggleDeleteStickersMenu = () => {
   const deleteStickersBtns = document.querySelector('.site-header__delete-stickers-btns');
   deleteStickersBtns.classList.toggle('site-header__delete-stickers-btns--active');
+};
+
+const handleDeleteClick = () => {
+  toggleDeleteStickersMenu();
+  toggleCheckBoxinStickers();
+};
+
+const handleSelectAllClick = () => {
+  const stickersHtmlCheckbox = document.querySelectorAll('.sticker__delete-checkbox');
+  stickersHtmlCheckbox.forEach((checkbox) => {
+    // eslint-disable-next-line no-param-reassign
+    checkbox.checked = true;
+  });
+};
+
+const handleConfirmDelete = () => {
+
+};
+
+const handleCancelDeleteStickerClick = () => {
+  toggleDeleteStickersMenu();
+  toggleCheckBoxinStickers();
+  setCheckboxesValueToFalse();
 };
 
 document.querySelector('.hamburger-btn').addEventListener('click', handleMenuClick);
@@ -52,32 +91,6 @@ document.querySelector('#add-sticker').addEventListener('click', handleAddSticke
 document.querySelectorAll('.site-header__btn').forEach((btn) => btn.addEventListener('click', handleMenuClick));
 document.querySelector('.add-sticker-menu__form').addEventListener('submit', handleSubmitStickerClick);
 document.querySelector('.add-sticker-menu__abandon-sticker').addEventListener('click', handleAbandonStickerClick);
-
-document.querySelector('#delete-sticker').addEventListener('click', () => {
-  // const stickersHtml = document.querySelectorAll('.sticker');
-  // const stickersHtmlCheckbox = document.querySelectorAll('.sticker__delete-checkbox');
-
-  // stickersHtmlCheckbox.forEach((checkbox) => {
-  //   checkbox.classList.toggle('sticker__delete-checkbox--active');
-  // });
-  handleDeleteClick();
-});
-
-// document.querySelector('.main__btn-check-all').addEventListener('click', () => {
-//   const stickersHtmlCheckbox = document.querySelectorAll('.sticker__delete-checkbox');
-//   stickersHtmlCheckbox.forEach((checkbox) => {
-//     // eslint-disable-next-line no-param-reassign
-//     checkbox.checked = true;
-//   });
-// });
-
-// document.querySelector('.main__btn-confirm-remove').addEventListener('click', () => {
-//   const stickersHtml = document.querySelectorAll('.sticker');
-//   const stickersToDelete = Array.from(stickersHtml).filter((sticker) => {
-//     return sticker.querySelector('.sticker__delete-checkbox:checked');
-//   });
-
-//   stickersToDelete.forEach((stickerHtml) => {
-//     console.log(stickerHtml);
-//   });
-// });
+document.querySelector('#delete-sticker').addEventListener('click', handleDeleteClick);
+document.querySelector('.site-header__btn-check-all').addEventListener('click', handleSelectAllClick);
+document.querySelector('.site-header__btn-abandon-remove').addEventListener('click', handleCancelDeleteStickerClick);
