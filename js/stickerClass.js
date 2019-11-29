@@ -98,6 +98,7 @@ class Sticker {
     const stickerHtmlDate = stickerHtml.querySelector('.sticker__input-date');
     const stickerHtmlTime = stickerHtml.querySelector('.sticker__input-time');
     const stickerHtmlDescription = stickerHtml.querySelector('.sticker__content');
+    const stickerCheckbox = stickerHtml.querySelector('.sticker__delete-checkbox');
 
     stickerHtmlTitle.addEventListener('change', () => {
       this.newTitle = stickerHtmlTitle.value;
@@ -118,6 +119,12 @@ class Sticker {
       this.newDescription = stickerHtmlDescription.value;
       this.menagerRef.submitChangesInStorage(this);
     });
+
+    stickerCheckbox.addEventListener('change', () => {
+      console.log("zmiana");
+    });
+
+
   }
 };
 

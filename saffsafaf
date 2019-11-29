@@ -1,0 +1,293 @@
+[33mcommit f02e955623dc29bb254ef8ab3946347b298682ee[m[33m ([m[1;36mHEAD -> [m[1;32mrefactor[m[33m)[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Thu Nov 28 16:53:44 2019 +0100
+
+    New method in main.js
+    
+    Add method toggleStickerAddMenu instead of  handleAddStickerClick(),
+    handleAbandonStickerClick().
+
+[33mcommit 78d39fd277aed48fb05f89e9c90e3805b33a569d[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Thu Nov 28 16:49:31 2019 +0100
+
+    new methods in main.js
+
+[33mcommit a2ff5c4f2d714d9f53ea86767d6174345016682e[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Tue Nov 26 20:04:29 2019 +0100
+
+    Modification how sticker get his id + buttons
+    
+    setStickerId in stickersMenagerClas from now return id.
+    Sticker's  method appendHtmlStickerToDOM asign id to html object.
+    
+    Buttons for removing stickers are in site header (html)
+
+[33mcommit 4436e287c1f8fdcff6cd70f56883ea80db6ba8ba[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Sun Nov 24 22:57:00 2019 +0100
+
+    alpha version of stickers removal from menu
+    
+    Add checkbox to sticker html
+    New events in main.js to delete checked stickers
+    Not finished
+
+[33mcommit b3814595b45d7de6d95e1c174d5cfe86080f0549[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Sun Nov 24 17:42:31 2019 +0100
+
+    Delete compareField from sticker
+
+[33mcommit 65d44399db9daadd0e9002801d2ccb3b75c6e46e[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Sun Nov 24 17:41:06 2019 +0100
+
+    change event to 'change' from 'blur'.
+    
+    Delete compareFields
+
+[33mcommit e41d8b4bb5052ba2727fe4e6114292e34869800d[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Sun Nov 24 17:28:56 2019 +0100
+
+    further part of work with refactoring
+    
+    Add stickersMenager reference to sticker class.
+    Delete isDeleted field from sticker Class
+    Restore old version of removeStickerFromStorage
+
+[33mcommit 627eb2d6b08593c1ac9c70ae52594227628c45c2[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Sat Nov 23 17:40:00 2019 +0100
+
+    refactoring on new branch refactor
+    
+    remove inhenterence between sticker and stickersMenager.
+    StickersMenager import stickerClass
+    StickersMenager  have new method called createSticker which is
+    responsible for creating sticker.
+    
+    Storage Class from now is abstract class.
+    
+    In main.js sticker object is create from method in stickersMenager
+
+[33mcommit e80db512124ea5be0dbb8b07d1610ee76017eba4[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mtest[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Tue Nov 19 18:57:01 2019 +0100
+
+    cosmetic
+
+[33mcommit 001e100b3eef7ad5891eb6f945e56d74754316ff[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Tue Nov 19 14:31:38 2019 +0100
+
+    Adding modifiable fields
+    
+    Add new method to stickerClass compareFields and new events to
+    detects change in fields.
+
+[33mcommit 2fc849a31913f2f6cded5b9d74cba213b12eb6c7[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Mon Nov 18 17:08:31 2019 +0100
+
+    Code refactoring
+    
+    storageClass is now more generic, can be use to storage
+    more than one type of data. Only two methods load and save.
+    New  class stickersMenagerClass
+    inherits from storageClass. StickersMenager is responsible for adding
+    stickers to storage, delete from storage, set sticker Id.
+    sticker class is allmost the same as it was beside sticker class
+    inherits after stickersMenagerClass.
+
+[33mcommit 54ee5bb34de210091b8d14f30c38b00abc4ebe27[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Wed Nov 6 21:04:38 2019 +0100
+
+    minor changes
+
+[33mcommit cb7a5df60d8243c1e775af8bab3b90b61eb6e95d[m[33m ([m[1;31morigin/test[m[33m)[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Wed Nov 6 17:58:08 2019 +0100
+
+    Add stickers modyfing
+    
+    change sticker htmls tructure:
+    -add 2 forms
+        first form in place of divs for date and title
+        second form in place of stickerContent
+    
+    Add methods to handle data modyfing
+    -submitChangesInStickerHeader and submitChangesInStickerContent for
+        sticker Class.
+    -Sticker class from now have also setters
+    
+    -Storage Class new method is submitChangesInStorage.
+
+[33mcommit fbf32e734ddaf67462a6b68867b9e3780ce482f9[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Tue Nov 5 19:15:46 2019 +0100
+
+    minor changes
+
+[33mcommit 45f0890cfbb43ca2883c866c0c6c4c970918c30c[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Sun Nov 3 16:59:25 2019 +0100
+
+    Add id property to sticker
+    
+    New method in storageClass assigns id to sticker.
+
+[33mcommit 6f4fd4714ab16bed98155b0f23808051da5a150e[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Sat Nov 2 22:33:01 2019 +0100
+
+    delete localStorage.clear() from storage class
+
+[33mcommit cd34113b6eafa2909539b1d55b3cb1526c0485ee[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Sat Nov 2 22:30:59 2019 +0100
+
+    Change delete sticker method
+    
+    Sticker method import storage Obj instead o creating new one.
+
+[33mcommit 5b2ffe2b303c47f53277d05489379178146be183[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Sat Nov 2 20:37:14 2019 +0100
+
+    Add method to classes storage and sticker
+    
+    New methods in class stickers are:
+    createHtmlSticker, appendHtmlStickerToDOM, deleteSticker,
+        bindStickerBtn
+    New method in class storage are:
+    saveStickersInLocalStorage, loadStickersFromLocalStorage,
+    addStickerToColection, removeStickerFromStorage.
+
+[33mcommit 7436c1de7698fe33512d4261841a801fe4285c2e[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Mon Oct 28 17:58:16 2019 +0100
+
+    Delete stickersClass, create new storageClass
+    
+    StorageClass is responsible for save stickers in to local storage and
+    load stickers from it.
+
+[33mcommit 17f3c52dfa5fae1c25a92081e8cffb5392ead436[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Sat Oct 26 20:09:47 2019 +0200
+
+    create new file stickersClass
+    
+    stickerClass is responsible for keeping all stickers and create html
+    object who represent sticker.
+    Stickerss class is allso responsible for fill sticker with data.
+    StickerClass from now represent the individual sticker and its
+    functionality
+
+[33mcommit 81499ca7c45e8a6fd3e873df89daa2742536dd1a[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Fri Oct 25 20:45:22 2019 +0200
+
+    Add menu to add stickers
+
+[33mcommit 61d4adb02c25c0111493a79806e9745062538e12[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Thu Oct 24 18:55:58 2019 +0200
+
+    Change main.js
+
+[33mcommit 2b34dd2e1b17adb66f35d90730e2b1df95a6003b[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Thu Oct 24 16:20:21 2019 +0200
+
+    Add js file stickerClass
+
+[33mcommit faf1c965b7e0cb0c1f2da4580636620f316a9188[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Thu Oct 24 16:17:55 2019 +0200
+
+    Improve menu, add sticker template to html, add js
+    
+    menu from now move from left side not right
+    add animated menu for search
+    add sticker template to html and basic css
+    add new js file stickerClass.js
+
+[33mcommit bdc094e0c366b188d058fa67b02c0f05c90ba97f[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Thu Oct 10 12:38:58 2019 +0200
+
+    Redesign html, delete bs4
+    
+    add menu and search
+
+[33mcommit 46e5d118718cb8c22bc4639431e7df59b3a25025[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Tue Oct 8 00:11:06 2019 +0200
+
+    fix the zoom problem
+
+[33mcommit 823fcd672c7ccb2d825f524c15a66c77e6492037[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Mon Oct 7 23:43:53 2019 +0200
+
+    test style css
+
+[33mcommit 856f7c9a8ea0eab2f15a499510fd7280f37ba48f[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Wed Oct 2 14:29:15 2019 +0200
+
+    Add bootstrap depedencie to project[C
+
+[33mcommit 86618d065ebeedd8dd11c7c97fb4d3f8b9499269[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Wed Oct 2 14:26:16 2019 +0200
+
+    Add bootstrap 4 to project
+
+[33mcommit 3e9465da1c6a9a878a5c505138edb252f2930e98[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Wed Sep 25 20:52:00 2019 +0200
+
+    My first try to introduce BAM to project
+
+[33mcommit a3b82f29961ecf2379256199fc2623ec85a71033[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Tue Sep 24 21:55:36 2019 +0200
+
+    Change in index.html tags
+    
+    Change section to div and date to time.
+
+[33mcommit a40c1fba2a04115e261ddd338d0a6a2b9e8b60d1[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Tue Sep 24 21:44:33 2019 +0200
+
+    Comments in html file
+
+[33mcommit e188a5ab494be7637372fec14703e8fb430e33dc[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Tue Sep 24 18:02:46 2019 +0200
+
+    Develop html structure
+    
+    Add sticker base structure, add site header structure,
+    add web icon
+
+[33mcommit 0985db9b13df2519f7fadfc41ebf98fb7096e9d1[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Mon Sep 23 23:18:09 2019 +0200
+
+    Add basic html and css
+
+[33mcommit 9f9a965198f81997f02e077184e9d1b494069763[m
+Author: Dumox <semafor26@gmail.com>
+Date:   Mon Sep 23 20:49:53 2019 +0200
+
+    initialize new project
+    
+    Create workspace, and styleint to project.

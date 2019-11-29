@@ -1,12 +1,5 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable import/extensions */
-import StickersMenager from './stickersMenagerClass.js';
-
-const stickersMenager = new StickersMenager();
-const stickers = stickersMenager.loadAllStickers();
-stickers.forEach((sticker) => {
-  stickersMenager.createSticker(sticker.title, sticker.date,
-    sticker.time, sticker.description, sticker.id);
-});
 
 const handleMenuClick = () => {
   const hamburgerBtn = document.querySelector('.hamburger-btn');
@@ -23,17 +16,6 @@ const handleSearchClick = () => {
 const toggleStickerAddMenu = () => {
   const addStickerMenu = document.querySelector('.add-sticker-menu');
   addStickerMenu.classList.toggle('add-sticker-menu--active');
-};
-
-const handleSubmitStickerClick = () => {
-  const stickerFormTitleInput = document.querySelector('.add-sticker-menu__sticker-title-input').value;
-  const stickerFormDateInput = document.querySelector('.add-sticker-menu__sticker-date-input').value;
-  const stickerFormTimeInput = document.querySelector('.add-sticker-menu__sticker-time-input').value;
-  const stickerFormTextarea = document.querySelector('.add-sticker-menu__sticker-textarea').value;
-
-  const sticker = stickersMenager.createSticker(stickerFormTitleInput, stickerFormDateInput,
-    stickerFormTimeInput, stickerFormTextarea, stickersMenager.setStickerId());
-  stickersMenager.addSticker(sticker);
 };
 
 const toggleCheckBoxinStickers = () => {
@@ -70,10 +52,6 @@ const handleSelectAllClick = () => {
   });
 };
 
-const handleConfirmDelete = () => {
-
-};
-
 const handleCancelDeleteStickerClick = () => {
   toggleDeleteStickersMenu();
   toggleCheckBoxinStickers();
@@ -84,8 +62,8 @@ document.querySelector('.hamburger-btn').addEventListener('click', handleMenuCli
 document.querySelector('.form-btn').addEventListener('click', handleSearchClick);
 document.querySelector('#add-sticker').addEventListener('click', toggleStickerAddMenu);
 document.querySelectorAll('.site-header__btn').forEach((btn) => btn.addEventListener('click', handleMenuClick));
-document.querySelector('.add-sticker-menu__form').addEventListener('submit', handleSubmitStickerClick);
 document.querySelector('.add-sticker-menu__abandon-sticker').addEventListener('click', toggleStickerAddMenu);
 document.querySelector('#delete-sticker').addEventListener('click', handleDeleteClick);
 document.querySelector('.site-header__btn-check-all').addEventListener('click', handleSelectAllClick);
-document.querySelector('.site-header__btn-abandon-remove').addEventListener('click', handleCancelDeleteStickerClick);
+document.querySelector('.site-header__btn-cancel-remove').addEventListener('click', handleCancelDeleteStickerClick);
+// document.querySelector('.site-header__btn-confirm-remove').addEventListener('click', handleConfirmDelete);

@@ -5,6 +5,7 @@ class StickersMenager extends Storage {
   constructor() {
     super();
     this.storageKey = "stickersArray";
+    this.eventsListener();
   }
 
   loadAllStickers = () => {
@@ -49,6 +50,28 @@ class StickersMenager extends Storage {
     });
     this.saveData(stickers, this.storageKey);
   }
+
+  handleSubmitStickerClick = () => {
+    const stickerFormTitleInput = document.querySelector('.add-sticker-menu__sticker-title-input').value;
+    const stickerFormDateInput = document.querySelector('.add-sticker-menu__sticker-date-input').value;
+    const stickerFormTimeInput = document.querySelector('.add-sticker-menu__sticker-time-input').value;
+    const stickerFormTextarea = document.querySelector('.add-sticker-menu__sticker-textarea').value;
+
+    const sticker = this.createSticker(stickerFormTitleInput, stickerFormDateInput,
+      stickerFormTimeInput, stickerFormTextarea, stickersMenager.setStickerId());
+    this.addSticker(sticker);
+  };
+
+  eventsListener = () => {
+    document.querySelector('.add-sticker-menu__form').addEventListener('submit', this.handleSubmitStickerClick);
+  }
 }
+
+const stickersMenager = new StickersMenager();
+const stickers = stickersMenager.loadAllStickers();
+stickers.forEach((sticker) => {
+  stickersMenager.createSticker(sticker.title, sticker.date,
+    sticker.time, sticker.description, sticker.id);
+});
 
 export default StickersMenager;
