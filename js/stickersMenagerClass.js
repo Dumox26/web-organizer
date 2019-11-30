@@ -26,9 +26,11 @@ class StickersMenager extends Storage {
   removeStickerFromStorage = (id) => {
     const stickers = this.loadAllStickers();
     const newStickersArray = stickers.filter((elem) => {
-      return elem.id !== id;
+      return elem.id != id;
     })
+    console.log(typeof id);
     this.saveData(newStickersArray, this.storageKey);
+    console.log(newStickersArray);
   }
 
   setStickerId = () => {
@@ -62,8 +64,19 @@ class StickersMenager extends Storage {
     this.addSticker(sticker);
   };
 
+  handleConfirmDelete = () => {
+    const stickers = document.querySelectorAll('.sticker');
+    const stickersToRemove = Array.from(stickers).filter((sticker) => sticker.querySelector('.sticker__delete-checkbox:checked'));
+    stickersToRemove.forEach((stickerToRemove) => {
+      this.removeStickerFromStorage(stickerToRemove.getAttribute('id'));
+      stickerToRemove.remove();
+    });
+    console.log(stickersToRemove);
+  }
+
   eventsListener = () => {
     document.querySelector('.add-sticker-menu__form').addEventListener('submit', this.handleSubmitStickerClick);
+    document.querySelector('.site-header__btn-confirm-remove').addEventListener('click', this.handleConfirmDelete);
   }
 }
 

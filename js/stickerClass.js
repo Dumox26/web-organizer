@@ -123,8 +123,6 @@ class Sticker {
     stickerCheckbox.addEventListener('change', () => {
       console.log("zmiana");
     });
-
-
   }
 };
 

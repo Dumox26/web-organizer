@@ -66,4 +66,3 @@ document.querySelector('.add-sticker-menu__abandon-sticker').addEventListener('c
 document.querySelector('#delete-sticker').addEventListener('click', handleDeleteClick);
 document.querySelector('.site-header__btn-check-all').addEventListener('click', handleSelectAllClick);
 document.querySelector('.site-header__btn-cancel-remove').addEventListener('click', handleCancelDeleteStickerClick);
-// document.querySelector('.site-header__btn-confirm-remove').addEventListener('click', handleConfirmDelete);
