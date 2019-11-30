@@ -20,22 +20,24 @@ class StickersMenager extends Storage {
 
   createSticker = (title, date, time, description, id) => {
     const sticker = new Sticker(title, date, time, description, id, this);
+
     return sticker;
   }
 
   removeStickerFromStorage = (id) => {
     const stickers = this.loadAllStickers();
+
     const newStickersArray = stickers.filter((elem) => {
       return elem.id != id;
     })
-    console.log(typeof id);
+
     this.saveData(newStickersArray, this.storageKey);
-    console.log(newStickersArray);
   }
 
   setStickerId = () => {
     const stickers = this.loadAllStickers();
     const length = stickers.length;
+
     if (length === 0) {
       return 1;
     } else {
@@ -45,11 +47,13 @@ class StickersMenager extends Storage {
 
   submitChangesInStorage = (sticker) => {
     const stickers = this.loadAllStickers();
+
     stickers.forEach(element => {
       if (element.id === sticker.id) {
         Object.assign(element, sticker);
       }
     });
+
     this.saveData(stickers, this.storageKey);
   }
 
@@ -67,11 +71,11 @@ class StickersMenager extends Storage {
   handleConfirmDelete = () => {
     const stickers = document.querySelectorAll('.sticker');
     const stickersToRemove = Array.from(stickers).filter((sticker) => sticker.querySelector('.sticker__delete-checkbox:checked'));
+
     stickersToRemove.forEach((stickerToRemove) => {
       this.removeStickerFromStorage(stickerToRemove.getAttribute('id'));
       stickerToRemove.remove();
     });
-    console.log(stickersToRemove);
   }
 
   eventsListener = () => {
@@ -82,6 +86,7 @@ class StickersMenager extends Storage {
 
 const stickersMenager = new StickersMenager();
 const stickers = stickersMenager.loadAllStickers();
+
 stickers.forEach((sticker) => {
   stickersMenager.createSticker(sticker.title, sticker.date,
     sticker.time, sticker.description, sticker.id);
