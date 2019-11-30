@@ -4,6 +4,7 @@
 const handleMenuClick = () => {
   const hamburgerBtn = document.querySelector('.hamburger-btn');
   const siteHeaderNav = document.querySelector('.site-header__navigation');
+
   hamburgerBtn.classList.toggle('hamburger-btn--active');
   siteHeaderNav.classList.toggle('site-header__navigation--active');
 };
@@ -20,6 +21,7 @@ const toggleStickerAddMenu = () => {
 
 const toggleCheckBoxinStickers = () => {
   const stickersHtml = document.querySelectorAll('.sticker');
+
   Array.from(stickersHtml).forEach((stickerHtml) => {
     const stickerCheckbox = stickerHtml.querySelector('.sticker__delete-checkbox');
     stickerCheckbox.classList.toggle('sticker__delete-checkbox--active');
@@ -28,6 +30,7 @@ const toggleCheckBoxinStickers = () => {
 
 const setCheckboxesValueToFalse = () => {
   const stickersHtml = document.querySelectorAll('.sticker');
+
   Array.from(stickersHtml).forEach((stickerHtml) => {
     const stickerCheckbox = stickerHtml.querySelector('.sticker__delete-checkbox');
     stickerCheckbox.checked = false;

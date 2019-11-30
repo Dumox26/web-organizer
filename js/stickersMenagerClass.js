@@ -65,6 +65,7 @@ class StickersMenager extends Storage {
 
     const sticker = this.createSticker(stickerFormTitleInput, stickerFormDateInput,
       stickerFormTimeInput, stickerFormTextarea, stickersMenager.setStickerId());
+
     this.addSticker(sticker);
   };
 
