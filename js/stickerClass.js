@@ -54,9 +54,11 @@ class Sticker {
       </div>
       <input type = "checkbox" name = "" class="sticker__delete-checkbox"
        id = "delete-check" >`;
+
     const htmlSticker = document.createElement('article');
     htmlSticker.classList.add('sticker');
     htmlSticker.innerHTML = innerHtmlSticker;
+
     return htmlSticker;
   }
 
@@ -71,25 +73,29 @@ class Sticker {
     stickerHtmlDate.value = this.date;
     stickerHtmlTime.value = this.time;
     stickerHtmlTextarea.value = this.description;
+
     return stickerHtml;
   }
 
   appendHtmlStickerToDOM = () => {
     const stickerHtml = this.fillStickerHtmlObjectWithData();
     stickerHtml.setAttribute('id', this.id);
+
     this.bindStickerBtn(stickerHtml);
+
     const stickersHtmlCnt = document.querySelector('.main');
+
     stickersHtmlCnt.appendChild(stickerHtml);
   }
 
   removeSticker = (stickerHtml) => {
     stickerHtml.remove();
-    console.log(this.menagerRef);
     this.menagerRef.removeStickerFromStorage(this.id);
   }
 
   bindStickerBtn = (stickerHtml) => {
     const stickerBtn = stickerHtml.querySelector('#stickerDeleteBtn');
+
     stickerBtn.addEventListener('click', () => {
       this.removeSticker(stickerHtml);
     });
