@@ -103,7 +103,7 @@ class Sticker {
     const stickerHtmlTitle = stickerHtml.querySelector('.sticker__input-text');
     const stickerHtmlDate = stickerHtml.querySelector('.sticker__input-date');
     const stickerHtmlTime = stickerHtml.querySelector('.sticker__input-time');
-    const stickerHtmlDescription = stickerHtml.querySelector('.sticker__content');
+    const stickerHtmlDescription = stickerHtml.querySelector('.sticker__textarea');
     const stickerCheckbox = stickerHtml.querySelector('.sticker__delete-checkbox');
 
     stickerHtmlTitle.addEventListener('change', () => {
