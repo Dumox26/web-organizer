@@ -271,12 +271,16 @@ a:visited {
   display: flex;
 }
 
-.main__btn-confirm-remove,
-.main__btn-check-all,
+.site-header__btn-confirm-remove,
+.site-header__btn-check-all,
 .site-header__btn-cancel-remove {
   margin: auto;
   width: 100%;
   height: 100%;
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
 /* main */
