@@ -42,7 +42,16 @@ const toggleDeleteStickersMenu = () => {
   deleteStickersBtns.classList.toggle('site-header__delete-stickers-btns--active');
 };
 
+const toggleMenus = () => {
+  const siteHeaderBranding = document.querySelector('.site-header__branding');
+  const siteHeaderBtns = document.querySelector('.site-header__buttons-cnt');
+
+  siteHeaderBranding.classList.toggle('site-header__branding--hidden');
+  siteHeaderBtns.classList.toggle('site-header__buttons-cnt--hidden');
+};
+
 const handleDeleteClick = () => {
+  toggleMenus();
   toggleDeleteStickersMenu();
   toggleCheckBoxinStickers();
 };
@@ -59,6 +68,7 @@ const handleCancelDeleteStickerClick = () => {
   toggleDeleteStickersMenu();
   toggleCheckBoxinStickers();
   setCheckboxesValueToFalse();
+  toggleMenus();
 };
 
 document.querySelector('.hamburger-btn').addEventListener('click', handleMenuClick);
