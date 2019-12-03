@@ -87,7 +87,6 @@ class StickersMenager extends Storage {
 
 const stickersMenager = new StickersMenager();
 const stickers = stickersMenager.loadAllStickers();
-console.log();
 
 stickers.forEach((sticker) => {
   stickersMenager.createSticker(sticker.title, sticker.date,

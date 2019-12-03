@@ -256,12 +256,6 @@ a:visited {
 /* delete stickers menu */
 
 .site-header__delete-stickers-btns {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateY(-70px);
-  transition: transform ease-in-out 0.5s 0.25s;
 }
 
 .site-header__delete-stickers-btns--active {
@@ -353,9 +347,21 @@ a:visited {
   display: block;
 }
 
+@media (min-width: 320px) {
+  :root {
+    font-size: calc(15px + 6 * ((100vw - 320px) / 680));
+  }
+}
+
 @media (min-width: 768px) {
   .hamburger-btn {
     display: none;
+  }
+
+  .site-header__nav {
+    margin-left: 0;
+    width: 100%;
+    justify-content:  flex-end;
   }
 
   .site-header__navigation {
@@ -365,6 +371,7 @@ a:visited {
     height: 100%;
     visibility: visible;
     transition: none;
+    width: auto;
   }
 
   .site-header__list {
@@ -372,7 +379,8 @@ a:visited {
   }
 
   .site-header__item {
-    margin: 0.5rem;
+    height: auto;
+    width: auto;
     border: none;
   }
 
@@ -381,6 +389,14 @@ a:visited {
   }
 
   .site-header__btn {
-    width: 60px;
+    width: auto;
+    margin: 0.5rem;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 1000px) {
+  :root {
+    font-size: 21px;
   }
 }
