@@ -362,6 +362,10 @@ a:visited {
 }
 
 @media (min-width: 768px) {
+  .site-header__branding--hidden {
+    display: flex;
+  }
+
   .hamburger-btn {
     display: none;
   }
@@ -369,7 +373,7 @@ a:visited {
   .site-header__nav {
     margin-left: 0;
     width: 100%;
-    justify-content:  flex-end;
+    justify-content: flex-end;
   }
 
   .site-header__navigation {
@@ -380,6 +384,10 @@ a:visited {
     visibility: visible;
     transition: none;
     width: auto;
+  }
+
+  .site-header__navigation--hidden {
+    display: none;
   }
 
   .site-header__list {
