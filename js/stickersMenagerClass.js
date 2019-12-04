@@ -58,10 +58,10 @@ class StickersMenager extends Storage {
   }
 
   handleSubmitStickerClick = () => {
-    const stickerFormTitleInput = document.querySelector('.add-sticker-menu__sticker-title-input').value;
-    const stickerFormDateInput = document.querySelector('.add-sticker-menu__sticker-date-input').value;
-    const stickerFormTimeInput = document.querySelector('.add-sticker-menu__sticker-time-input').value;
-    const stickerFormTextarea = document.querySelector('.add-sticker-menu__sticker-textarea').value;
+    const stickerFormTitleInput = document.querySelector('#add-title-input').value;
+    const stickerFormDateInput = document.querySelector('#add-date-input').value;
+    const stickerFormTimeInput = document.querySelector('#add-time-input').value;
+    const stickerFormTextarea = document.querySelector('#add-textarea').value;
 
     const sticker = this.createSticker(stickerFormTitleInput, stickerFormDateInput,
       stickerFormTimeInput, stickerFormTextarea, stickersMenager.setStickerId());

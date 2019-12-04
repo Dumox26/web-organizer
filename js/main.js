@@ -86,7 +86,7 @@ document.querySelector('.hamburger-btn').addEventListener('click', handleMenuCli
 document.querySelector('.form-btn').addEventListener('click', handleSearchClick);
 document.querySelector('#add-sticker').addEventListener('click', toggleStickerAddMenu);
 document.querySelectorAll('.site-header__btn').forEach((btn) => btn.addEventListener('click', handleMenuClick));
-document.querySelector('.add-sticker-menu__abandon-sticker').addEventListener('click', toggleStickerAddMenu);
+document.querySelector('#cancel-add-button').addEventListener('click', toggleStickerAddMenu);
 document.querySelector('#delete-sticker').addEventListener('click', handleDeleteClick);
 document.querySelector('.site-header__btn-check-all').addEventListener('click', handleSelectAllClick);
 document.querySelector('.site-header__btn-cancel-remove').addEventListener('click', handleCancelDeleteStickerClick);

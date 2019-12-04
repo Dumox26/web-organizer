@@ -46,17 +46,19 @@
       <div class="add-sticker-menu">
         <form action="" method="GET" class="add-sticker-menu__form">
           <label for="title" class="add-sticker-menu__label">Tytuł karteczki</label>
-          <input type="text" name="title" class="add-sticker-menu__sticker-title-input"
+          <input id="add-title-input" type="text" name="title" class="add-sticker-menu__input"
             placeholder="wpisz tytuł zdarzenia" required>
           <label for="date" class="add-sticker-menu__label">Data karteczki</label>
-          <input type="date" name="date" class="add-sticker-menu__sticker-date-input" placeholder="wpisz datę" required>
+          <input id="add-date-input" type="date" name="date" class="add-sticker-menu__input" placeholder="wpisz datę"
+            required>
           <label for="time" class="add-sticker-menu__label">Godzina karteczki </label>
-          <input type="time" name="time" class="add-sticker-menu__sticker-time-input" placeholder="wpisz godzinę">
+          <input id="add-time-input" type="time" name="time" class="add-sticker-menu__input"
+            placeholder="wpisz godzinę">
           <label for="description" class="add-sticker-menu__label">Tytuł karteczki</label>
-          <textarea class="add-sticker-menu__sticker-textarea" name="description"
+          <textarea id="add-textarea" class="add-sticker-menu__textarea" name="description"
             placeholder="Wpisz wydarzenie"></textarea>
-          <button type="submit" class="add-sticker-menu__submit-sticker">potwierdź</button>
-          <button type="button" class="add-sticker-menu__abandon-sticker">anuluj</button>
+          <button id="confirm-add-button" type="submit" class="add-sticker-menu__button">potwierdź</button>
+          <button id="cancel-add-button" type="button" class="add-sticker-menu__button">anuluj</button>
         </form>
       </div>
       <div class="site-header__delete-stickers-btns">
