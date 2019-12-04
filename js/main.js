@@ -1,6 +1,12 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable import/extensions */
 
+const toggleBlur = () => {
+  const blur = document.querySelector('.blur');
+
+  blur.classList.toggle('blur--active');
+};
+
 const handleMenuClick = () => {
   const hamburgerBtn = document.querySelector('.hamburger-btn');
   const siteHeaderNav = document.querySelector('.site-header__navigation');
@@ -46,10 +52,13 @@ const toggleMenus = () => {
   const siteHeaderBranding = document.querySelector('.site-header__branding');
   const siteHeaderBtns = document.querySelector('.site-header__buttons-cnt');
   const siteHeaderNavigation = document.querySelector('.site-header__navigation');
+  const siteHeaderNav = document.querySelector('.site-header__nav');
 
   siteHeaderBranding.classList.toggle('site-header__branding--hidden');
   siteHeaderBtns.classList.toggle('site-header__buttons-cnt--hidden');
   siteHeaderNavigation.classList.toggle('site-header__navigation--hidden');
+  siteHeaderNav.classList.toggle('site-header__nav--center');
+
 };
 
 const handleDeleteClick = () => {

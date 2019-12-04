@@ -72,6 +72,12 @@ a:visited {
   margin-left: auto;
 }
 
+.site-header__nav--center {
+  justify-content: center;
+  margin-left: 0;
+  width: 100%;
+}
+
 .site-header__form {
   width: 300px;
   height: 50px;
@@ -235,9 +241,9 @@ a:visited {
 
 .add-sticker-menu {
   width: 320px;
-  height: 400px;
+  height: 350px;
   background-color: var(--primaryColor);
-  padding: 1rem;
+  padding: 15px;
   position: absolute;
   top: 0;
   left: 0;
@@ -259,6 +265,14 @@ a:visited {
   height: 100%;
   display: flex;
   flex-flow: column wrap;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.add-sticker-menu input,
+textarea,
+button {
+  margin: 0.25rem 0;
 }
 
 /* delete stickers menu */
@@ -359,6 +373,25 @@ a:visited {
   display: block;
 }
 
+/* Blur */
+
+.blur {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  opacity: 0.9;
+  background-color: green;
+  pointer-events: none;
+}
+
+.blur--active {
+  display: block;
+}
+
 @media (min-width: 320px) {
   :root {
     font-size: calc(15px + 6 * ((100vw - 320px) / 680));
@@ -396,12 +429,16 @@ a:visited {
 
   .site-header__list {
     flex-flow: row nowrap;
+    justify-content: space-around;
+    padding: 0.5rem;
+    width: 300px;
   }
 
   .site-header__item {
     height: auto;
     width: auto;
     border: none;
+    margin: 0 0.25rem;
   }
 
   .site-header__list .site-header__item:first-child {
@@ -410,7 +447,6 @@ a:visited {
 
   .site-header__btn {
     width: auto;
-    margin: 0.5rem;
     cursor: pointer;
   }
 }
