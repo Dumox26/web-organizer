@@ -16,13 +16,13 @@ const handleMenuClick = () => {
 };
 
 const handleSearchClick = () => {
-  const siteHeaderForm = document.querySelector('.site-header__form');
-  siteHeaderForm.classList.toggle('site-header__form--active');
+  const siteHeaderForm = document.querySelector('.site-header__form-search');
+  siteHeaderForm.classList.toggle('site-header__form-search--active');
 };
 
 const toggleStickerAddMenu = () => {
-  const addStickerMenu = document.querySelector('.add-sticker-menu');
-  addStickerMenu.classList.toggle('add-sticker-menu--active');
+  const addStickerMenu = document.querySelector('.site-header__add-sticker-menu');
+  addStickerMenu.classList.toggle('site-header__add-sticker-menu--active');
 };
 
 const toggleCheckBoxinStickers = () => {
@@ -58,7 +58,6 @@ const toggleMenus = () => {
   siteHeaderBtns.classList.toggle('site-header__buttons-cnt--hidden');
   siteHeaderNavigation.classList.toggle('site-header__navigation--hidden');
   siteHeaderNav.classList.toggle('site-header__nav--center');
-
 };
 
 const handleDeleteClick = () => {
@@ -84,9 +83,9 @@ const handleCancelDeleteStickerClick = () => {
 
 document.querySelector('.hamburger-btn').addEventListener('click', handleMenuClick);
 document.querySelector('.form-btn').addEventListener('click', handleSearchClick);
-document.querySelector('#add-sticker').addEventListener('click', toggleStickerAddMenu);
-document.querySelectorAll('.site-header__btn').forEach((btn) => btn.addEventListener('click', handleMenuClick));
+document.querySelector('#add-sticker-btn').addEventListener('click', toggleStickerAddMenu);
+document.querySelector('.site-header__navigation').querySelectorAll('.site-header__btn').forEach((btn) => btn.addEventListener('click', handleMenuClick));
 document.querySelector('#cancel-add-button').addEventListener('click', toggleStickerAddMenu);
-document.querySelector('#delete-sticker').addEventListener('click', handleDeleteClick);
-document.querySelector('.site-header__btn-check-all').addEventListener('click', handleSelectAllClick);
-document.querySelector('.site-header__btn-cancel-remove').addEventListener('click', handleCancelDeleteStickerClick);
+document.querySelector('#delete-sticker-btn').addEventListener('click', handleDeleteClick);
+document.querySelector('#check-all-btn').addEventListener('click', handleSelectAllClick);
+document.querySelector('#cancel-remove-btn').addEventListener('click', handleCancelDeleteStickerClick);

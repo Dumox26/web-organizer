@@ -18,17 +18,18 @@
       <h1 class="site-header__title">Kolejny web organizer</h1>
     </div>
     <nav class="site-header__nav">
-      <div class="site-header__form">
-        <form action="" class="site-header__search-form">
-          <input type="text" class="site-header__input-text" placeholder="test">
-          <button type="submit" class="site-header__form-submit" value="test">Test</button>
+      <div class="site-header__form-search">
+        <form action="" class="site-header__form">
+          <label for="search"></label>
+          <input type="text" name="search" id="search-value-input" class="site-header__input" placeholder="test">
+          <button type="submit" id="search-value-input" class="site-header__btn" value="test">Test</button>
         </form>
       </div>
       <div class="site-header__navigation">
         <ul class="site-header__list">
-          <li class="site-header__item"><button class="site-header__btn" id="add-sticker">Dodaj</button></li>
-          <li class="site-header__item"><button class="site-header__btn" id="delete-sticker">Usun</button></li>
-          <li class="site-header__item"><button class="site-header__btn">Zaloguj</button></li>
+          <li class="site-header__item"><button class="site-header__btn" id="add-sticker-btn">Dodaj</button></li>
+          <li class="site-header__item"><button class="site-header__btn" id="delete-sticker-btn">Usun</button></li>
+          <li class="site-header__item"><button class="site-header__btn" id="login-btn">Zaloguj</button></li>
         </ul>
       </div>
       <div class="site-header__buttons-cnt">
@@ -43,28 +44,30 @@
           </span>
         </button>
       </div>
-      <div class="add-sticker-menu">
-        <form action="" method="GET" class="add-sticker-menu__form">
-          <label for="title" class="add-sticker-menu__label">Tytuł karteczki</label>
-          <input id="add-title-input" type="text" name="title" class="add-sticker-menu__input"
+      <div class="site-header__add-sticker-menu">
+        <form action="" method="GET" class="site-header__form">
+          <label for="title" class="site-header__label">Tytuł karteczki</label>
+          <input id="add-title-input" type="text" name="title" class="site-header__input"
             placeholder="wpisz tytuł zdarzenia" required>
-          <label for="date" class="add-sticker-menu__label">Data karteczki</label>
-          <input id="add-date-input" type="date" name="date" class="add-sticker-menu__input" placeholder="wpisz datę"
+          <label for="date" class="site-header__label">Data karteczki</label>
+          <input id="add-date-input" type="date" name="date" class="site-header__input" placeholder="wpisz datę"
             required>
-          <label for="time" class="add-sticker-menu__label">Godzina karteczki </label>
-          <input id="add-time-input" type="time" name="time" class="add-sticker-menu__input"
-            placeholder="wpisz godzinę">
-          <label for="description" class="add-sticker-menu__label">Tytuł karteczki</label>
-          <textarea id="add-textarea" class="add-sticker-menu__textarea" name="description"
+          <label for="time" class="site-header__label">Godzina karteczki </label>
+          <input id="add-time-input" type="time" name="time" class="site-header__input" placeholder="wpisz godzinę">
+          <label for="description" class="site-header__label">Opisz zdarzenie</label>
+          <textarea id="add-textarea" class="site-header__textarea" name="description"
             placeholder="Wpisz wydarzenie"></textarea>
-          <button id="confirm-add-button" type="submit" class="add-sticker-menu__button">potwierdź</button>
-          <button id="cancel-add-button" type="button" class="add-sticker-menu__button">anuluj</button>
+          <button id="confirm-add-button" type="submit" class="site-header__btn">potwierdź</button>
+          <button id="cancel-add-button" type="button" class="site-header__btn">anuluj</button>
         </form>
       </div>
       <div class="site-header__delete-stickers-btns">
-        <button type="button" class="site-header__btn-confirm-remove">potwierdź</button>
-        <button type="button" class="site-header__btn-check-all">zaznacz wszystko</button>
-        <button type="button" class="site-header__btn-cancel-remove">anuluj</button>
+        <ul class="site-header__list site-header__list--flex-row">
+          <li class="site-header__item"><button class="site-header__btn" id="confirm-remove-btn">potwierdź</button></li>
+          <li class="site-header__item"><button class="site-header__btn" id="check-all-btn">zaznacz wszystko</button>
+          </li>
+          <li class="site-header__item"><button class="site-header__btn" id="cancel-remove-btn">anuluj</button></li>
+        </ul>
       </div>
     </nav>
   </header>

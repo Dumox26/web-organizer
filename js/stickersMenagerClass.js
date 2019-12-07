@@ -80,8 +80,8 @@ class StickersMenager extends Storage {
   }
 
   eventsListener = () => {
-    document.querySelector('.add-sticker-menu__form').addEventListener('submit', this.handleSubmitStickerClick);
-    document.querySelector('.site-header__btn-confirm-remove').addEventListener('click', this.handleConfirmDelete);
+    document.querySelector('#confirm-add-button').addEventListener('submit', this.handleSubmitStickerClick);
+    document.querySelector('#confirm-remove-btn').addEventListener('click', this.handleConfirmDelete);
   }
 }
 
