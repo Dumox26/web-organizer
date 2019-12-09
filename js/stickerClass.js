@@ -92,10 +92,16 @@ class Sticker {
     this.menagerRef.removeStickerFromStorage(this.id);
   }
 
-  expandStickerContent = (stickerHtml) => {
+  expandFoldStickerContent = (stickerHtml) => {
     const stickerContent = stickerHtml.querySelector('.sticker__content');
 
     stickerContent.classList.toggle('sticker__content--expanded');
+
+    if (stickerContent.classList.contains('sticker__content--expanded')) {
+      event.target.textContent = "zwiń";
+    } else {
+      event.target.textContent = "rozwiń";
+    }
   }
 
   bindStickerBtn = (stickerHtml) => {
@@ -107,7 +113,7 @@ class Sticker {
     });
 
     stickerExpandBtn.addEventListener('click', () => {
-      this.expandStickerContent(stickerHtml);
+      this.expandFoldStickerContent(stickerHtml);
     })
 
     const stickerHtmlTitle = stickerHtml.querySelector('#sticker-title');
