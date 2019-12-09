@@ -33,16 +33,15 @@ class Sticker {
     const innerHtmlSticker = `
       <header class="sticker__header">
         <form action="get" class="sticker__form">
-          <input type="text" class="sticker__input-text" required>
-          <input type="date" name="" class="sticker__input-date">
-          <input type="time" class="sticker__input-time">
+          <input type="text" id="sticker-title" class="sticker__input" required>
+          <input type="date" id="sticker-date" name="" class="sticker__input">
+          <input type="time" id="sticker-time" class="sticker__input">
           <button type="submit" class="sticker__submit" hidden></button>
         </form>
         <div class="sticker__nav-cnt">
           <ul class="sticker__nav-list">
-            <li class="sticker__nav-item"><button class="sticker__nav-button">Modyfikuj</button></li>
-            <li class="sticker__nav-item"><button id="stickerDeleteBtn" class="sticker__nav-button">Usuń</button></li>
-            <li class="sticker__nav-item"><button class="sticker__nav-button">testowy</button></li>
+            <li class="sticker__nav-item"><button id="sticker-delete-btn" class="sticker__nav-button">Usuń</button></li>
+            <li class="sticker__nav-item"><button id="sticker-expand-btn" class="sticker__nav-button">rozwin</button></li>
           </ul>
         </div>
       </header>
@@ -50,7 +49,7 @@ class Sticker {
         <form action="" method="get" class="sticker__form-content">
           <textarea name="" id="" cols="15" rows="10" class="sticker__textarea"></textarea>
           <button type="submit" class="sticker__submit-content" hidden></button>
-          </form>
+        </form>
       </div>
       <input type = "checkbox" name = "" class="sticker__delete-checkbox"
        id = "delete-check" >`;
@@ -64,9 +63,9 @@ class Sticker {
 
   fillStickerHtmlObjectWithData = () => {
     const stickerHtml = this.createHtmlSticker();
-    const stickerHtmlTitle = stickerHtml.querySelector('.sticker__input-text');
-    const stickerHtmlDate = stickerHtml.querySelector('.sticker__input-date');
-    const stickerHtmlTime = stickerHtml.querySelector('.sticker__input-time');
+    const stickerHtmlTitle = stickerHtml.querySelector('#sticker-title');
+    const stickerHtmlDate = stickerHtml.querySelector('#sticker-date');
+    const stickerHtmlTime = stickerHtml.querySelector('#sticker-time');
     const stickerHtmlTextarea = stickerHtml.querySelector('.sticker__textarea');
 
     stickerHtmlTitle.value = this.title;
@@ -93,16 +92,27 @@ class Sticker {
     this.menagerRef.removeStickerFromStorage(this.id);
   }
 
-  bindStickerBtn = (stickerHtml) => {
-    const stickerBtn = stickerHtml.querySelector('#stickerDeleteBtn');
+  expandStickerContent = (stickerHtml) => {
+    const stickerContent = stickerHtml.querySelector('.sticker__content');
 
-    stickerBtn.addEventListener('click', () => {
+    stickerContent.classList.toggle('sticker__content--expanded');
+  }
+
+  bindStickerBtn = (stickerHtml) => {
+    const stickerDeleteBtn = stickerHtml.querySelector('#sticker-delete-btn');
+    const stickerExpandBtn = stickerHtml.querySelector('#sticker-expand-btn');
+
+    stickerDeleteBtn.addEventListener('click', () => {
       this.removeSticker(stickerHtml);
     });
 
-    const stickerHtmlTitle = stickerHtml.querySelector('.sticker__input-text');
-    const stickerHtmlDate = stickerHtml.querySelector('.sticker__input-date');
-    const stickerHtmlTime = stickerHtml.querySelector('.sticker__input-time');
+    stickerExpandBtn.addEventListener('click', () => {
+      this.expandStickerContent(stickerHtml);
+    })
+
+    const stickerHtmlTitle = stickerHtml.querySelector('#sticker-title');
+    const stickerHtmlDate = stickerHtml.querySelector('#sticker-date');
+    const stickerHtmlTime = stickerHtml.querySelector('#sticker-time');
     const stickerHtmlDescription = stickerHtml.querySelector('.sticker__textarea');
     const stickerCheckbox = stickerHtml.querySelector('.sticker__delete-checkbox');
 

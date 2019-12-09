@@ -363,6 +363,11 @@ body {
   grid-column: span 2;
 }
 
+.sticker__input:focus {
+  box-shadow: var(--inputFocusShadowBox);
+  -webkit-box-shadow: var(--inputFocusShadowBox);
+}
+
 .sticker__nav-list {
   display: flex;
 }
@@ -371,6 +376,10 @@ body {
   width: 100%;
   height: 200px;
   background: green;
+  display: none;
+}
+
+.sticker__content--expanded {
   display: flex;
 }
 

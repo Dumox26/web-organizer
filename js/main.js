@@ -81,6 +81,11 @@ const handleCancelDeleteStickerClick = () => {
   toggleMenus();
 };
 
+const handleConfirmDeleteAllBtnClick = () => {
+  toggleDeleteStickersMenu();
+  toggleMenus();
+};
+
 document.querySelector('.hamburger-btn').addEventListener('click', handleMenuClick);
 document.querySelector('.form-btn').addEventListener('click', handleSearchClick);
 document.querySelector('#add-sticker-btn').addEventListener('click', toggleStickerAddMenu);
@@ -89,3 +94,4 @@ document.querySelector('#cancel-add-button').addEventListener('click', toggleSti
 document.querySelector('#delete-sticker-btn').addEventListener('click', handleDeleteClick);
 document.querySelector('#check-all-btn').addEventListener('click', handleSelectAllClick);
 document.querySelector('#cancel-remove-btn').addEventListener('click', handleCancelDeleteStickerClick);
+document.querySelector('#confirm-remove-btn').addEventListener('click', handleConfirmDeleteAllBtnClick);
