@@ -23,6 +23,9 @@ const handleSearchClick = () => {
 const toggleStickerAddMenu = () => {
   const addStickerMenu = document.querySelector('.site-header__add-sticker-menu');
   addStickerMenu.classList.toggle('site-header__add-sticker-menu--active');
+
+  const addStickerMenuInputTitle = addStickerMenu.querySelector('#add-title-input');
+  addStickerMenuInputTitle.focus();
 };
 
 const toggleCheckBoxinStickers = () => {
