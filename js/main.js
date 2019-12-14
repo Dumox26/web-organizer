@@ -98,3 +98,4 @@ document.querySelector('#delete-sticker-btn').addEventListener('click', handleDe
 document.querySelector('#check-all-btn').addEventListener('click', handleSelectAllClick);
 document.querySelector('#cancel-remove-btn').addEventListener('click', handleCancelDeleteStickerClick);
 document.querySelector('#confirm-remove-btn').addEventListener('click', handleConfirmDeleteAllBtnClick);
+document.querySelector('#search-form').addEventListener('submit', handleSearchClick);

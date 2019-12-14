@@ -94,8 +94,10 @@ class Sticker {
 
   expandFoldStickerContent = (stickerHtml) => {
     const stickerContent = stickerHtml.querySelector('.sticker__content');
+    const stickerTextarea = stickerContent.querySelector('.sticker__form-content');
 
     stickerContent.classList.toggle('sticker__content--expanded');
+    stickerTextarea.classList.toggle('sticker__form-content--visible');
 
     if (stickerContent.classList.contains('sticker__content--expanded')) {
       event.target.textContent = "zwiń";
