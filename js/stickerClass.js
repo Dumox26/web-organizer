@@ -32,6 +32,7 @@ class Sticker {
   createHtmlSticker = () => {
     const innerHtmlSticker = `
       <header class="sticker__header">
+        <div class="sticker__drag">Przytrzymaj by przesunąć</div>
         <form action="get" class="sticker__form">
           <input type="text" id="sticker-title" class="sticker__input" required>
           <input type="date" id="sticker-date" name="" class="sticker__input">
@@ -79,7 +80,9 @@ class Sticker {
   appendHtmlStickerToDOM = () => {
     const stickerHtml = this.fillStickerHtmlObjectWithData();
     stickerHtml.setAttribute('id', this.id);
+    stickerHtml.classList.add('draggable');
 
+    this.bindStickerDrag(stickerHtml);
     this.bindStickerBtn(stickerHtml);
 
     const stickersHtmlCnt = document.querySelector('.main');
@@ -104,6 +107,46 @@ class Sticker {
     } else {
       event.target.textContent = "rozwiń";
     }
+  }
+
+  bindStickerDrag = (stickerHtml) => {
+    const dragArea = stickerHtml.querySelector('.sticker__drag');
+
+    dragArea.addEventListener('mousedown', (event) => {
+      let posX = event.clientX;
+      let posY = event.clientY;
+
+      stickerHtml.classList.add('sticker--draged');
+
+      console.log(`PosX = ${posX}, PosY = ${posY}`);
+
+      const mousemove = (event) => {
+        let newPosX = posX - event.clientX;
+        let newPosY = posY - event.clientY;
+
+        console.log(`newPosX = ${newPosX}, newPosY = ${newPosY}`);
+
+        const stickerHtmlPos = stickerHtml.getBoundingClientRect();
+        console.log(stickerHtmlPos);
+
+        stickerHtml.style.left = stickerHtmlPos.left - newPosX + 'px';
+        stickerHtml.style.top = stickerHtmlPos.top - newPosY + 'px';
+
+        posX = event.clientX;
+        posY = event.clientY;
+        console.log(`style-left = ${stickerHtml.style.left}, styleTop = ${stickerHtml.style.top}`);
+      }
+
+      const mouseUp = () => {
+        window.removeEventListener('mousemove', mousemove, false);
+        window.removeEventListener('mouseup', mouseUp, false);
+        stickerHtml.classList.remove('sticker--draged');
+      }
+
+      window.addEventListener('mousemove', mousemove, false);
+
+      window.addEventListener('mouseup', mouseUp, false);
+    }, false);
   }
 
   bindStickerBtn = (stickerHtml) => {
