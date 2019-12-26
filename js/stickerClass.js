@@ -112,41 +112,64 @@ class Sticker {
   bindStickerDrag = (stickerHtml) => {
     const dragArea = stickerHtml.querySelector('.sticker__drag');
 
-    dragArea.addEventListener('mousedown', (event) => {
+    const stickerDragStart = (event) => {
       let posX = event.clientX;
       let posY = event.clientY;
+      if (event.type === 'touchstart') {
+        posX = event.touches[0].clientX;
+        posY = event.touches[0].clientY;
+      } else {
+        posX = event.clientX;
+        posY = event.clientY;
+      }
 
       stickerHtml.classList.add('sticker--draged');
 
-      console.log(`PosX = ${posX}, PosY = ${posY}`);
+      const stickermove = (event) => {
+        let newPosX = 0;
+        let newPosY = 0;
 
-      const mousemove = (event) => {
-        let newPosX = posX - event.clientX;
-        let newPosY = posY - event.clientY;
-
-        console.log(`newPosX = ${newPosX}, newPosY = ${newPosY}`);
+        if (event.type === 'touchmove') {
+          newPosX = posX - event.touches[0].clientX;
+          newPosY = posY - event.touches[0].clientY;
+        } else {
+          newPosX = posX - event.clientX;
+          newPosY = posY - event.clientY;
+        }
 
         const stickerHtmlPos = stickerHtml.getBoundingClientRect();
-        console.log(stickerHtmlPos);
 
         stickerHtml.style.left = stickerHtmlPos.left - newPosX + 'px';
         stickerHtml.style.top = stickerHtmlPos.top - newPosY + 'px';
 
-        posX = event.clientX;
-        posY = event.clientY;
-        console.log(`style-left = ${stickerHtml.style.left}, styleTop = ${stickerHtml.style.top}`);
+        if (event.type === 'touchmove') {
+          posX = event.touches[0].clientX;
+          posY = event.touches[0].clientY;
+        } else {
+          posX = event.clientX;
+          posY = event.clientY;
+        }
       }
 
-      const mouseUp = () => {
-        window.removeEventListener('mousemove', mousemove, false);
-        window.removeEventListener('mouseup', mouseUp, false);
+      const stickerMoveEnd = () => {
+        window.removeEventListener('mousemove', stickermove, false);
+        window.removeEventListener('mouseup', stickerMoveEnd, false);
+
+        window.removeEventListener('touchmove', stickermove, false);
+        window.removeEventListener('touchend', stickerMoveEnd, false);
+
         stickerHtml.classList.remove('sticker--draged');
       }
 
-      window.addEventListener('mousemove', mousemove, false);
+      window.addEventListener('mousemove', stickermove, false);
+      window.addEventListener('mouseup', stickerMoveEnd, false);
 
-      window.addEventListener('mouseup', mouseUp, false);
-    }, false);
+      window.addEventListener('touchmove', stickermove, false);
+      window.addEventListener('touchend', stickerMoveEnd, false);
+    }
+
+    dragArea.addEventListener('mousedown', stickerDragStart);
+    dragArea.addEventListener('touchstart', stickerDragStart);
   }
 
   bindStickerBtn = (stickerHtml) => {
